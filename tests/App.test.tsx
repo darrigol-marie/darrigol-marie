@@ -8,4 +8,10 @@ describe('App', () => {
 
 		expect(screen.getByRole('main')).toBeInTheDocument();
 	});
+
+	it('should display a title saying "Accueil"', () => {
+		render(<App />);
+
+		expect(screen.getByRole('heading')).toHaveTextContent(/accueil/i);
+	});
 });
