@@ -1,14 +1,11 @@
 import './App.css';
-
-interface Page {
-	name: string;
-}
+import type { Page } from './types/page.type';
 
 interface Props {
 	pages: Page[];
 }
 
-function App({ pages = [] }: Props) {
+function App({ pages }: Props) {
 	return (
 		<main>
 			<h1>Accueil</h1>
