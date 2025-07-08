@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import AboutPage from '../../src/AboutPage';
+import AboutPage from '../../src/pages/AboutPage';
 
 describe('AboutPage', () => {
 	it('should introduce me', () => {
