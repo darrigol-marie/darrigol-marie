@@ -1,23 +1,29 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import './App.css';
+import { appRoutes, type AppRoute } from './App.routes';
+
+function getCurrentRoute(): AppRoute | null {
+	const currentLocation = useLocation();
+
+	// TODO: throw an error instead of returning null (not finding the current route means we are on an invalid route)
+	return (
+		appRoutes.find((appRoute) => appRoute.path === currentLocation.pathname) ||
+		null
+	);
+}
 
 function App() {
-	const pages: any[] = [];
+	const currentRoute = getCurrentRoute();
 
 	return (
 		<>
 			<div id="page">
 				<main>
-					<h1>Accueil</h1>
+					<h1>{currentRoute ? currentRoute.name : 'Title'}</h1>
 					<nav>
 						<ul>
-							{pages.length === 0 && (
-								<li>
-									<a>Accueil</a>
-								</li>
-							)}
-							{pages.map((page) => {
+							{appRoutes.map((page) => {
 								return (
 									<li>
 										<a>{page.name}</a>
