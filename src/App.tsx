@@ -1,12 +1,8 @@
 import './App.css';
 
-import type { Page } from './types/page.type';
+function App() {
+	const pages: any[] = [];
 
-interface Props {
-	pages: Page[];
-}
-
-function App({ pages }: Props) {
 	return (
 		<>
 			<div id="page">
@@ -14,6 +10,11 @@ function App({ pages }: Props) {
 					<h1>Accueil</h1>
 					<nav>
 						<ul>
+							{pages.length === 0 && (
+								<li>
+									<a>Accueil</a>
+								</li>
+							)}
 							{pages.map((page) => {
 								return (
 									<li>

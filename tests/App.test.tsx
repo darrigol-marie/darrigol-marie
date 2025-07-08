@@ -5,10 +5,10 @@ import { sitePages } from '../src/types/page.type';
 
 describe('App', () => {
 	function renderComponent() {
-		render(<App pages={sitePages} />);
+		render(<App />);
 	}
 
-	it('should display the page', () => {
+	it('should display the page container', () => {
 		renderComponent();
 
 		expect(screen.getByRole('main')).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe('App', () => {
 		);
 	});
 
-	it('should display the content of the page', () => {
+	it('should display the page content', () => {
 		renderComponent();
 
 		expect(screen.getByRole('article')).toBeInTheDocument();
