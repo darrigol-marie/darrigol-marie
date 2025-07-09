@@ -1,7 +1,11 @@
 import './Footer.scss';
 
 function Footer() {
-	return <footer>2025 Marie Darrigol</footer>;
+	return (
+		<footer>
+			<small>© 2025 Marie Darrigol</small>
+		</footer>
+	);
 }
 
 export default Footer;
