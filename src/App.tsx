@@ -23,13 +23,13 @@ function App() {
 	return (
 		<>
 			<div id="page">
-				<main>
+				<div id="content">
 					<Header title={currentRoute ? currentRoute.name : 'Title'} />
 					<Navigation links={appRoutes} />
-					<article>
+					<main>
 						<Outlet />
-					</article>
-				</main>
+					</main>
+				</div>
 			</div>
 			<Footer />
 		</>

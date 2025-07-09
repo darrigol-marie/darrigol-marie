@@ -9,12 +9,6 @@ describe('App', () => {
 		render(<App />, { wrapper: BrowserRouter });
 	}
 
-	it('should display the page container', () => {
-		renderComponent();
-
-		expect(screen.getByRole('main')).toBeInTheDocument();
-	});
-
 	it('should display a title saying "À propos"', () => {
 		renderComponent();
 
@@ -34,7 +28,7 @@ describe('App', () => {
 	it('should display the page content', () => {
 		renderComponent();
 
-		expect(screen.getByRole('article')).toBeInTheDocument();
+		expect(screen.getByRole('main')).toBeInTheDocument();
 	});
 
 	it('should display a footer', () => {
