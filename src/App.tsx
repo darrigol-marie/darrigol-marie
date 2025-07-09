@@ -24,8 +24,10 @@ function App() {
 		<>
 			<div id="page">
 				<div id="content">
-					<Header title={currentRoute ? currentRoute.name : 'Title'} />
-					<Navigation links={appRoutes} />
+					<header>
+						<Header title={currentRoute ? currentRoute.name : 'Title'} />
+						<Navigation links={appRoutes} />
+					</header>
 					<main>
 						<Outlet />
 					</main>
