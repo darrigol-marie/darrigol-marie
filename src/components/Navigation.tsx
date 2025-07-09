@@ -14,7 +14,7 @@ function Navigation({ links }: Props) {
 			<ul>
 				{links.map((link) => {
 					return (
-						<li>
+						<li key={link.path}>
 							<NavLink to={link.path}>{link.name}</NavLink>
 						</li>
 					);
