@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 
 import { appRoutes, type AppRoute } from './App.routes';
-import './App.css';
+import './App.scss';
 
 import Header from './components/Header';
 import Footer from './components/Footer';

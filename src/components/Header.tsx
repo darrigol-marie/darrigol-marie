@@ -1,4 +1,4 @@
-import './Header.css';
+import './Header.scss';
 
 interface Props {
 	title: string;

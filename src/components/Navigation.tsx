@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import './Navigation.css';
+import './Navigation.scss';
 
 import type { AppRoute } from '../App.routes';
 
