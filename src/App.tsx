@@ -1,9 +1,10 @@
 import { Outlet, useLocation } from 'react-router-dom';
 
-import './App.css';
 import { appRoutes, type AppRoute } from './App.routes';
+import './App.css';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function getCurrentRoute(): AppRoute | null {
 	const currentLocation = useLocation();
@@ -39,7 +40,7 @@ function App() {
 					</article>
 				</main>
 			</div>
-			<footer>© 2025 Marie Darrigol</footer>
+			<Footer />
 		</>
 	);
 }

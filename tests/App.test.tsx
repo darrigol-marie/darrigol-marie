@@ -37,14 +37,9 @@ describe('App', () => {
 		expect(screen.getByRole('article')).toBeInTheDocument();
 	});
 
-	it('should display a footer with current year and credits', () => {
+	it('should display a footer', () => {
 		renderComponent();
 
-		const footer = screen.getByRole('contentinfo');
-		const currentDate = new Date();
-
-		expect(footer).toHaveTextContent(
-			`© ${currentDate.getFullYear()} Marie Darrigol`
-		);
+		expect(screen.getByRole('contentinfo')).toBeInTheDocument();
 	});
 });
