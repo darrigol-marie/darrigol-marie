@@ -1,0 +1,35 @@
+nav {
+  position: sticky;
+  top: 0;
+
+  background-color: blueviolet;
+
+  color: white;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    li {
+      padding: 5px;
+
+      text-align: center;
+      
+      &:hover {
+        background-color: violet;
+        
+        cursor: pointer;
+      }
+
+      a {
+        text-decoration: none;
+
+        &.active {
+          color: lightpink;
+        }
+      }
+    }
+  }
+}

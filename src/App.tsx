@@ -5,6 +5,7 @@ import './App.css';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Navigation from './components/Navigation';
 
 function getCurrentRoute(): AppRoute | null {
 	const currentLocation = useLocation();
@@ -24,17 +25,7 @@ function App() {
 			<div id="page">
 				<main>
 					<Header title={currentRoute ? currentRoute.name : 'Title'} />
-					<nav>
-						<ul>
-							{appRoutes.map((page) => {
-								return (
-									<li>
-										<a>{page.name}</a>
-									</li>
-								);
-							})}
-						</ul>
-					</nav>
+					<Navigation links={appRoutes} />
 					<article>
 						<Outlet />
 					</article>
