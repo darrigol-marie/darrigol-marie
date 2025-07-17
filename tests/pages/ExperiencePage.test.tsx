@@ -1,17 +1,21 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 
 import ExperiencePage, {
 	type Experience,
 } from '../../src/pages/ExperiencePage';
-import {
-	createMemoryRouter,
-	RouterProvider,
-	type RouteObject,
-} from 'react-router-dom';
+import { renderWithRouter } from '../utils/router.helper';
+
+interface Props {
+	experiencesList: HTMLElement[];
+	noExperienceMessage: HTMLElement | null;
+}
 
 describe('ExperiencePage', () => {
-	const jobTitlePattern = 'développeuse|stagiaire';
-	const experiences: Experience[] = [
+	const jobName = 'développeuse|stagiaire';
+	const jobTitlePattern = RegExp(`${jobName}`, 'i');
+	const companyNamePattern = RegExp(`^((?!${jobName}).)*$`, 'i');
+	const noExperiencePattern = /aucune expérience/i;
+	const mockupExperiences: Experience[] = [
 		{
 			date: '2017 - 2022',
 			position: 'Développeuse front-end',
@@ -20,98 +24,81 @@ describe('ExperiencePage', () => {
 		},
 	];
 
-	function getHeadingSearchPattern(forJobTitle: boolean): RegExp {
-		return forJobTitle
-			? RegExp(`${jobTitlePattern}`, 'i')
-			: RegExp(`^((?!${jobTitlePattern}).)*$`, 'i');
-	}
+	async function renderComponent(
+		experiences: Experience[] = []
+	): Promise<Props> {
+		renderWithRouter(<ExperiencePage />, experiences);
 
-	function searchForNoExperienceMessage() {
-		return screen.queryByText(/aucune expérience/i);
-	}
+		await waitFor(
+			() => screen.queryByText(noExperiencePattern) || screen.getByRole('article')
+		);
 
-	async function renderComponent(experiences: Experience[]): Promise<{
-		experiences: HTMLElement[];
-	}> {
-		const routes: RouteObject[] = [
-			{
-				path: '/',
-				element: <ExperiencePage />,
-				loader: () => experiences,
-				hydrateFallbackElement: <></>,
-			},
-		];
-		const router = createMemoryRouter(routes, {
-			initialEntries: ['/'],
-			initialIndex: 1,
-		});
-
-		render(<RouterProvider router={router} />);
-		await waitFor(() => screen.getByRole('paragraph'));
-
-		return { experiences: screen.queryAllByRole('article') };
+		return {
+			experiencesList: screen.queryAllByRole('article'),
+			noExperienceMessage: screen.queryByText(noExperiencePattern),
+		};
 	}
 
 	it('should display a message when there is no experience to display', async () => {
-		const component = await renderComponent([]);
+		const component = await renderComponent();
 
-		expect(searchForNoExperienceMessage()).toBeInTheDocument();
-		expect(component.experiences).toHaveLength(0);
+		expect(component.noExperienceMessage).toBeInTheDocument();
+		expect(component.experiencesList).toHaveLength(0);
 	});
 
 	it('should display the list of the given experiences', async () => {
-		const component = await renderComponent(experiences);
+		const component = await renderComponent(mockupExperiences);
 
-		expect(component.experiences).toHaveLength(experiences.length);
-		expect(searchForNoExperienceMessage()).not.toBeInTheDocument();
+		expect(component.experiencesList).toHaveLength(mockupExperiences.length);
+		expect(component.noExperienceMessage).not.toBeInTheDocument();
 	});
 
 	it('should display the date for each experience', async () => {
-		const component = await renderComponent(experiences);
+		await renderComponent(mockupExperiences);
 
 		const experiencesDate = screen.getAllByRole('time');
 
-		expect(experiencesDate).toHaveLength(component.experiences.length);
+		expect(experiencesDate).toHaveLength(mockupExperiences.length);
 		for (let i = 0; i < experiencesDate.length; i++) {
-			expect(experiencesDate[i]).toHaveTextContent(experiences[i].date);
+			expect(experiencesDate[i]).toHaveTextContent(mockupExperiences[i].date);
 		}
 	});
 
 	it('should display the job position for each experience', async () => {
-		const component = await renderComponent(experiences);
+		await renderComponent(mockupExperiences);
 
 		const positions = screen.getAllByRole('heading', {
-			name: getHeadingSearchPattern(true),
+			name: jobTitlePattern,
 		});
 
-		expect(positions).toHaveLength(component.experiences.length);
+		expect(positions).toHaveLength(mockupExperiences.length);
 		for (let i = 0; i < positions.length; i++) {
-			expect(positions[i]).toHaveTextContent(experiences[i].position);
+			expect(positions[i]).toHaveTextContent(mockupExperiences[i].position);
 		}
 	});
 
 	it('should display the company name for each experience', async () => {
-		const component = await renderComponent(experiences);
+		await renderComponent(mockupExperiences);
 
 		const companyNames = screen.getAllByRole('heading', {
-			name: getHeadingSearchPattern(false),
+			name: companyNamePattern,
 		});
 
-		expect(companyNames).toHaveLength(component.experiences.length);
+		expect(companyNames).toHaveLength(mockupExperiences.length);
 		for (let i = 0; i < companyNames.length; i++) {
-			expect(companyNames[i]).toHaveTextContent(experiences[i].company);
+			expect(companyNames[i]).toHaveTextContent(mockupExperiences[i].company);
 		}
 	});
 
 	it('should display the description of each experience', async () => {
-		const component = await renderComponent(experiences);
+		await renderComponent(mockupExperiences);
 
 		const experiencesDescriptions = screen.getAllByRole('paragraph');
 
-		expect(experiencesDescriptions).toHaveLength(component.experiences.length);
+		expect(experiencesDescriptions).toHaveLength(mockupExperiences.length);
 		for (let i = 0; i < experiencesDescriptions.length; i++) {
 			expect(experiencesDescriptions[i]).toHaveTextContent(
-				experiences[i].description
+				mockupExperiences[i].description
 			);
 		}
 	});

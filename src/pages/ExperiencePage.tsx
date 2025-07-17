@@ -8,7 +8,7 @@ export interface Experience {
 }
 
 function ExperiencePage() {
-	const experiences: Experience[] = useLoaderData();
+	const experiences: Experience[] = useLoaderData() || [];
 
 	return (
 		<>
