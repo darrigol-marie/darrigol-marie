@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, type ByRoleMatcher } from '@testing-library/react';
 
 import PostsList, { type Post } from '../../src/components/PostsList';
 
@@ -20,6 +20,20 @@ describe('PostsList', () => {
 		};
 	}
 
+	function testComponentFeature(
+		elementRole: ByRoleMatcher,
+		componentFeature: keyof Post
+	) {
+		const postsElements = screen.getAllByRole(elementRole);
+
+		expect(postsElements).toHaveLength(basicMockupPosts.length);
+		for (let i = 0; i < postsElements.length; i++) {
+			expect(postsElements[i]).toHaveTextContent(
+				basicMockupPosts[i][componentFeature]
+			);
+		}
+	}
+
 	it('should display a message if there is no element to display', () => {
 		const component = renderComponent([]);
 
@@ -37,22 +51,12 @@ describe('PostsList', () => {
 	it('should display a title for each post', () => {
 		renderComponent();
 
-		const postsTitles = screen.getAllByRole('heading');
-
-		expect(postsTitles).toHaveLength(basicMockupPosts.length);
-		for (let i = 0; i < postsTitles.length; i++) {
-			expect(postsTitles[i]).toHaveTextContent(basicMockupPosts[i].title);
-		}
+		testComponentFeature('heading', 'title');
 	});
 
 	it('should display a text for each post', () => {
 		renderComponent();
 
-		const postsTexts = screen.getAllByRole('paragraph');
-
-		expect(postsTexts).toHaveLength(basicMockupPosts.length);
-		for (let i = 0; i < postsTexts.length; i++) {
-			expect(postsTexts[i]).toHaveTextContent(basicMockupPosts[i].text);
-		}
+		testComponentFeature('paragraph', 'text');
 	});
 });
