@@ -20,11 +20,11 @@ describe('PostsList', () => {
 		};
 	}
 
-	function testComponentFeature(
-		elementRole: ByRoleMatcher,
-		componentFeature: keyof Post
+	function expectComponentFeatureToHaveHTMLElement(
+		componentFeature: keyof Post,
+		elementType: ByRoleMatcher
 	) {
-		const postsElements = screen.getAllByRole(elementRole);
+		const postsElements = screen.getAllByRole(elementType);
 
 		expect(postsElements).toHaveLength(basicMockupPosts.length);
 		for (let i = 0; i < postsElements.length; i++) {
@@ -51,12 +51,12 @@ describe('PostsList', () => {
 	it('should display a title for each post', () => {
 		renderComponent();
 
-		testComponentFeature('heading', 'title');
+		expectComponentFeatureToHaveHTMLElement('title', 'heading');
 	});
 
 	it('should display a text for each post', () => {
 		renderComponent();
 
-		testComponentFeature('paragraph', 'text');
+		expectComponentFeatureToHaveHTMLElement('text', 'paragraph');
 	});
 });
