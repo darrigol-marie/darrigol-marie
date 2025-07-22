@@ -8,6 +8,7 @@ describe('ProjectsPage', () => {
 	const mockupProjects: Project[] = [
 		{
 			id: 'project-test',
+			date: '202X',
 			name: 'Project Name',
 			description: 'Project description',
 		},
