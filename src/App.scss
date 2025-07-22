@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 #page {
   padding: 5px;
   flex: 1;
@@ -10,8 +12,8 @@
   max-width: 1080px;
   margin: auto;
 
-  border: 1px solid darkblue;
-  background-color: aliceblue;
+  border: 1px solid $secondary-color;
+  background-color: $text-background-color;
 }
 
 main {

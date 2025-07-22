@@ -1,8 +1,8 @@
+@import '../variables.scss';
+
 h1 {
   margin: 0;
   padding: 20px;
 
-  background-color: indigo;
-
-  color: white;
+  background-color: $primary-color;
 }
