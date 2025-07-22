@@ -1,4 +1,4 @@
-@import './variables.scss';
+@use './variables.scss';
 
 #page {
   padding: 5px;
@@ -12,8 +12,8 @@
   max-width: 1080px;
   margin: auto;
 
-  border: 1px solid $secondary-color;
-  background-color: $text-background-color;
+  border: 1px solid variables.$secondary-color;
+  background-color: variables.$text-background-color;
 }
 
 main {
