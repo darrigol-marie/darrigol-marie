@@ -5,7 +5,7 @@ $text-margin: 15px;
 $title-margin: 5px;
 
 article {
-    border-bottom: 1px solid variables.$primary-color;
+    border-bottom: 1px solid variables.$secondary-color;
 
     margin-bottom: $article-margin;
     padding-bottom: $article-margin;
@@ -16,7 +16,7 @@ article {
     }
 
     header {
-        color: variables.$secondary-color;
+        color: variables.$primary-color;
 
         font-family: "Oswald";
 
