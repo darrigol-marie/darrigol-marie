@@ -8,7 +8,6 @@ body {
   background-position: top left, top right;
   background-repeat: repeat-y;
   background-blend-mode: screen;
-  background-attachment: scroll;
 
   color: variables.$text-color;
   font-family: "Open Sans", sans-serif;
@@ -19,4 +18,11 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
+}
+
+@media (max-width: variables.$small-device-width) {
+  body {
+    background-image: url(/public/doodles_placeholder_light.png);
+    background-position: center;
+  }
 }

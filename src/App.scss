@@ -38,3 +38,9 @@ main {
   max-height: 100%;
   overflow-y: auto;
 }
+
+@media (max-height: variables.$small-device-height) {
+  #title {
+    flex: none;
+  }
+}

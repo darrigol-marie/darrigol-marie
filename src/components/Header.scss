@@ -9,16 +9,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &-title {
+    margin: auto 0 0 0;
+
+    font-size: 2.5em;
+  }
+
+  &-subtitle {
+    margin: 5px 0 10px 0;
+
+    font-size: 1.5em;
+  }
 }
 
-.header-title {
-  margin: auto 0 0 0;
-
-  font-size: 2.5em;
-}
-
-.header-subtitle {
-  margin: 5px 0 10px 0;
-
-  font-size: 1.5em;
+@media (max-height: variables.$small-device-height) {
+  .header-title {
+    margin-top: 10px;
+  }
 }
