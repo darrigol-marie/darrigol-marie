@@ -10,11 +10,11 @@ interface Props {
 
 function Navigation({ links }: Props) {
 	return (
-		<nav>
-			<ul>
+		<nav className="navigation">
+			<ul className="navigation-links">
 				{links.map((link) => {
 					return (
-						<li key={link.path}>
+						<li key={link.path} className="navigation-links-item">
 							<NavLink to={link.path}>{link.name}</NavLink>
 						</li>
 					);

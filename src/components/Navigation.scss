@@ -2,23 +2,22 @@
 
 $hover-animation-duration: 150ms;
 
-nav {
+.navigation {
   position: sticky;
   top: 0;
 
   background-color: variables.$primary-color;
 
-  ul {
+  &-links {
     margin: 0;
     padding: 0;
     display: flex;
 
     list-style: none;
 
-    li {
+    &-item {
       flex: 1;
-      
-      text-align: center;
+      display: flex;
       
       &:hover {
         background-color: variables.$tertiary-color;
@@ -31,8 +30,9 @@ nav {
       }
       
       a {
-        padding: 5px;
         display: inline-block;
+        text-align: center;
+        padding: 5px 0;
         width: 100%;
 
         color: variables.$secondary-color;
