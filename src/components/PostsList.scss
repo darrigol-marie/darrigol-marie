@@ -5,7 +5,9 @@ $text-margin: 15px;
 $title-margin: 5px;
 
 .post {
-    border-bottom: 1px solid variables.$secondary-color;
+    border-bottom: 3px solid transparent;
+    border-image: radial-gradient(variables.$secondary-color, transparent);
+    border-image-slice: 1;
 
     margin-bottom: $article-margin;
     padding-bottom: $article-margin;
