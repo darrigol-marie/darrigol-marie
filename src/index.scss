@@ -19,6 +19,14 @@ body {
   overflow-y: hidden;
 }
 
+a {
+  color: variables.$tertiary-color;
+
+  &:hover {
+    color: variables.$primary-color;
+  }
+}
+
 @media (max-width: variables.$small-device-width) {
   body {
     background-image: url(/doodles_placeholder_light.png);
