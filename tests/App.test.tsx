@@ -41,6 +41,6 @@ describe('App', () => {
 	it('should display a 404 error page when the user navigates to a wrong route', () => {
 		navigateTo('/bad-route');
 
-		expect(screen.getByText('404')).toBeInTheDocument();
+		expect(screen.getByText(/404/)).toBeInTheDocument();
 	});
 });

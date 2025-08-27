@@ -5,6 +5,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ExperiencePage from './pages/ExperiencePage';
 import ProjectsPage from './pages/ProjectsPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 export type AppRoute = RouteObject & {
 	path: string;
@@ -15,7 +16,7 @@ export const rootRoute: RouteObject & {
 	children: AppRoute[];
 } = {
 	element: <App />,
-	errorElement: <p>404</p>,
+	errorElement: <NotFoundPage />,
 	children: [
 		{
 			path: '/',
