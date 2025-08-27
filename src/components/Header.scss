@@ -25,7 +25,11 @@
 }
 
 @media (max-height: variables.$small-device-height) {
-  .header-title {
+  .header {
+    flex: 0;
+
+    &-title {
     margin-top: 10px;
+  }
   }
 }
