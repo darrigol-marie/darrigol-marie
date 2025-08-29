@@ -23,6 +23,14 @@ describe('ExperiencePage', () => {
 		await waitFor(() => screen.getByRole('article'));
 	}
 
+	it('should display a loading text while loading data', async () => {
+		renderWithRouter(<ExperiencePage />, []);
+
+		await waitFor(() => screen.getByText(/chargement/i));
+
+		expect(screen.getByText(/chargement/i)).toBeInTheDocument();
+	});
+
 	it('should display the date for each experience', async () => {
 		await renderComponent();
 

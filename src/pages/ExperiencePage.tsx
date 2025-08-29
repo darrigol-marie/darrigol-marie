@@ -13,17 +13,20 @@ function ExperiencePage() {
 	const experiences: Experience[] = useLoaderData() || [];
 
 	return (
-		<PostsList
-			posts={experiences.map((experience) => {
-				return {
-					id: experience.id,
-					title: experience.position,
-					subtitle: experience.company,
-					date: experience.date,
-					text: experience.description,
-				};
-			})}
-		/>
+		<>
+			<div>Chargement...</div>
+			<PostsList
+				posts={experiences.map((experience) => {
+					return {
+						id: experience.id,
+						title: experience.position,
+						subtitle: experience.company,
+						date: experience.date,
+						text: experience.description,
+					};
+				})}
+			/>
+		</>
 	);
 }
 
