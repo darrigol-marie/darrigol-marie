@@ -35,6 +35,7 @@ describe('ExperiencePage', () => {
 		renderComponent();
 
 		expect(screen.getByText(/chargement/i)).toBeInTheDocument();
+		expect(screen.queryByText(/aucun/i)).not.toBeInTheDocument();
 	});
 
 	it('should remove the loading text when data are loaded', async () => {

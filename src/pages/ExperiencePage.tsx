@@ -19,18 +19,21 @@ function ExperiencePage() {
 
 	return (
 		<>
-			{isLoading && <p>Chargement...</p>}
-			<PostsList
-				posts={data.map((experience: Experience) => {
-					return {
-						id: experience.id,
-						title: experience.position,
-						subtitle: experience.company,
-						date: experience.date,
-						text: experience.description,
-					};
-				})}
-			/>
+			{isLoading ? (
+				<p>Chargement...</p>
+			) : (
+				<PostsList
+					posts={data.map((experience: Experience) => {
+						return {
+							id: experience.id,
+							title: experience.position,
+							subtitle: experience.company,
+							date: experience.date,
+							text: experience.description,
+						};
+					})}
+				/>
+			)}
 		</>
 	);
 }

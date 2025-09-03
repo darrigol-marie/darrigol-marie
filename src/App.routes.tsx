@@ -27,11 +27,6 @@ export const rootRoute: RouteObject & {
 			path: '/experience',
 			element: <ExperiencePage />,
 			name: 'Expérience',
-			loader: async () => {
-				return fetch('src/data/experiences.json').then((response) =>
-					response.json()
-				);
-			},
 		},
 		{
 			path: '/projects',
