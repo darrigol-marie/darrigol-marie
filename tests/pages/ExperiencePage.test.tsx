@@ -1,9 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, waitFor } from '@testing-library/react';
 
-import ExperiencePage from '../../src/pages/ExperiencePage';
-import { mockupExperiences } from '../../src/mocks/data';
+import { mockupExperiences } from '../mocks/data';
 import { expectPropToBeRenderedForEachComponent } from '../utils/expect.helper';
+import ExperiencePage from '../../src/pages/ExperiencePage';
 
 describe('ExperiencePage', () => {
 	function renderComponent() {
