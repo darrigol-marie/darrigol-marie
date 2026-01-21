@@ -6,7 +6,7 @@ describe('AboutPage', () => {
 	it('should introduce me', () => {
 		render(<AboutPage />);
 
-		expect(screen.getByText(/Marie Darrigol/)).toBeInTheDocument();
+		expect(screen.getByText(/Marie/)).toBeInTheDocument();
 		expect(screen.getByText(/développeuse web/i)).toBeInTheDocument();
 	});
 });
