@@ -26,9 +26,15 @@ function App() {
 				<Footer />
 			</QueryClientProvider>
 			<div className="loader">
-				<div className="loader-element"></div>
-				<div className="loader-element"></div>
-				<div className="loader-element"></div>
+				<div className="loader-element">
+					<div className="loader-element-symbol"></div>
+				</div>
+				<div className="loader-element">
+					<div className="loader-element-symbol"></div>
+				</div>
+				<div className="loader-element">
+					<div className="loader-element-symbol"></div>
+				</div>
 			</div>
 		</>
 	);
