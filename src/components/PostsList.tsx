@@ -10,14 +10,9 @@ export interface Post {
 
 interface Props {
 	posts: Post[];
-	isLoading: boolean;
 }
 
-function PostsList({ posts, isLoading }: Props) {
-	if (isLoading) {
-		return <p>Chargement...</p>;
-	}
-
+function PostsList({ posts }: Props) {
 	return (
 		<>
 			{posts.length === 0 && <p>Aucun élément à afficher.</p>}
