@@ -1,5 +1,12 @@
+@use '../variables.scss';
+
+.loader-container {
+  display: flex;
+  width: 100%;
+}
+
 .loader {
-  margin: 10px;
+  margin: 10px auto;
 
   &-element {
     display: inline-block;

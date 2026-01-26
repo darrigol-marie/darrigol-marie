@@ -1,3 +1,5 @@
+import Loader from './Loader';
+
 export interface LoadingScreenProps extends React.PropsWithChildren {
 	isLoading: boolean;
 	isError: boolean;
@@ -8,7 +10,7 @@ function LoadingScreen({ isLoading, isError, children }: LoadingScreenProps) {
 		return <p>Une erreur est survenue.</p>;
 	}
 
-	return isLoading ? <p>Chargement...</p> : <>{children}</>;
+	return <Loader /> /*isLoading ? <p>Chargement...</p> : <>{children}</>*/;
 }
 
 export default LoadingScreen;
