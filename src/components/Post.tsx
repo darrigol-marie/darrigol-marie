@@ -1,9 +1,15 @@
 interface Props {
 	title: string;
+	date: string;
 }
 
-function Post({ title }: Props) {
-	return <h1>{title}</h1>;
+function Post({ title, date }: Props) {
+	return (
+		<>
+			<h1>{title}</h1>
+			<time>{date}</time>
+		</>
+	);
 }
 
 export default Post;
