@@ -14,20 +14,20 @@ describe('Post', () => {
 		const postTitle = 'Title';
 
 		render(<Post title={postTitle} date={'XXX'} />);
-		const postElement = screen.getByRole('heading');
+		const titleElement = screen.getByRole('heading');
 
-		expect(postElement).toBeInTheDocument();
-		expect(postElement).toHaveTextContent(postTitle);
+		expect(titleElement).toBeInTheDocument();
+		expect(titleElement).toHaveTextContent(postTitle);
 	});
 
 	it('should display a date', () => {
 		const postDate = '202X';
 
 		render(<Post title={'Title'} date={postDate} />);
-		const postElement = screen.getByRole('time');
+		const dateElement = screen.getByRole('time');
 
-		expect(postElement).toBeInTheDocument();
-		expect(postElement).toHaveTextContent(postDate);
+		expect(dateElement).toBeInTheDocument();
+		expect(dateElement).toHaveTextContent(postDate);
 	});
 
 	it('should display a subtitle if provided', () => {
