@@ -12,7 +12,7 @@ describe('Post', () => {
 	it('should display a title', () => {
 		const postTitle = 'Title';
 
-		render(<Post title={postTitle} date={'XXX'} />);
+		render(<Post title={postTitle} date={'XXX'} content={[]} />);
 		const titleElement = screen.getByRole('heading');
 
 		expect(titleElement).toBeInTheDocument();
@@ -22,7 +22,7 @@ describe('Post', () => {
 	it('should display a date', () => {
 		const postDate = '202X';
 
-		render(<Post title={'Title'} date={postDate} />);
+		render(<Post title={'Title'} date={postDate} content={[]} />);
 		const dateElement = screen.getByRole('time');
 
 		expect(dateElement).toBeInTheDocument();
@@ -32,7 +32,9 @@ describe('Post', () => {
 	it('should display a subtitle if provided', () => {
 		const postSubtitle = 'Subtitle';
 
-		render(<Post title={'Title'} date={'XXX'} subtitle={postSubtitle} />);
+		render(
+			<Post title={'Title'} date={'XXX'} subtitle={postSubtitle} content={[]} />,
+		);
 		const subtitleElement = screen.getByRole('doc-subtitle');
 
 		expect(subtitleElement).toBeInTheDocument();
@@ -40,8 +42,19 @@ describe('Post', () => {
 	});
 
 	it('should not display a subtitle if not provided', () => {
-		render(<Post title={'Title'} date={'XXX'} />);
+		render(<Post title={'Title'} date={'XXX'} content={[]} />);
 
 		expect(screen.queryByRole('doc-subtitle')).not.toBeInTheDocument();
+	});
+
+	it('should display a paragraph if provided in the content', () => {
+		const postParagraph = 'This is a paragraph';
+		const postContent = [{ type: 'paragraph', content: postParagraph }];
+
+		render(<Post title={'Title'} date={'XXX'} content={postContent} />);
+		const paragraphElement = screen.getByRole('paragraph');
+
+		expect(paragraphElement).toBeInTheDocument();
+		expect(paragraphElement).toHaveTextContent(postParagraph);
 	});
 });
