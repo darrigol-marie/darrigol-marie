@@ -2,11 +2,6 @@ import { render, screen } from '@testing-library/react';
 
 import Post from '../../src/components/Post';
 
-/**
- * Les tests à écrire :
- *
- * - il faut afficher un lien si on en a un
- */
 describe('Post', () => {
 	it('should display a title', () => {
 		const postTitle = 'Title';
@@ -86,5 +81,11 @@ describe('Post', () => {
 		expect(linkElement).toBeInTheDocument();
 		expect(linkElement).toHaveAttribute('href', linkSource);
 		expect(linkElement).toHaveTextContent(linkText);
+	});
+
+	it('should not display a link if not provided', () => {
+		render(<Post title={'Title'} date={'XXX'} paragraphs={[]} />);
+
+		expect(screen.queryByRole('link')).not.toBeInTheDocument();
 	});
 });
