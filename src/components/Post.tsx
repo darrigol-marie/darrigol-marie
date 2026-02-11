@@ -1,3 +1,5 @@
+import './Post.scss';
+
 import { type PostProps } from '../types/post.type';
 
 interface Props extends PostProps {}
@@ -6,8 +8,8 @@ function Post({ id, title, date, subtitle, paragraphs, link }: Props) {
 	return (
 		<article key={id} className="post">
 			<header className="post-header">
-				<h1>{title}</h1>
 				<time>{date}</time>
+				<h2>{title}</h2>
 				{subtitle && <p role="doc-subtitle">{subtitle}</p>}
 			</header>
 			<section className="post-content">
@@ -15,7 +17,7 @@ function Post({ id, title, date, subtitle, paragraphs, link }: Props) {
 					<p>{paragraph}</p>
 				))}
 			</section>
-			<section>
+			<section className="post-link">
 				{link && (
 					<a href={link.source} target="_blank">
 						{link.text}

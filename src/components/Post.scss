@@ -1,0 +1,40 @@
+@use '../variables.scss';
+
+$text-margin: 15px;
+$title-margin: 5px;
+
+.post {
+    &-header {
+        color: variables.$primary-color;
+
+        font-family: "Oswald";
+
+        h2 {
+            margin: $title-margin 0;
+        }
+
+        p {
+            margin: 0;
+
+            font-style: italic;
+        }
+
+        time {
+            font-size: 0.8em;
+        }
+    }
+
+    &-content {
+        p {
+            margin: 0;
+            margin-top: $text-margin;
+        }
+    }
+
+    &-link {
+        a {
+            display: inline-block;
+            margin-top: $text-margin;
+        }
+    }
+}
