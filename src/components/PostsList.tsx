@@ -13,6 +13,7 @@ function PostsList({ posts }: Props) {
 			{posts.length === 0 && <p>Aucun élément à afficher.</p>}
 			{posts.map((post) => (
 				<Post
+					key={post.id}
 					id={post.id}
 					title={post.title}
 					date={post.date}
