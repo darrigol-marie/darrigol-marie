@@ -14,7 +14,7 @@ function Post({ id, title, date, subtitle, paragraphs, link }: Props) {
 			</header>
 			<section className="post-content">
 				{paragraphs.map((paragraph) => (
-					<p>{paragraph}</p>
+					<p key={crypto.randomUUID()}>{paragraph}</p>
 				))}
 			</section>
 			<section className="post-link">
