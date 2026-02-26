@@ -1,0 +1,7 @@
+@use '../variables.scss';
+
+@media (max-height: variables.$small-device-height) {
+    #contact-page {
+        text-align: center;
+    }
+}

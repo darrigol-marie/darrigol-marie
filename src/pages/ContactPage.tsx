@@ -1,6 +1,8 @@
+import './ContactPage.scss';
+
 function ContactPage() {
 	return (
-		<>
+		<section id="contact-page">
 			<p>Vous souhaitez me contacter ?</p>
 			<p>
 				Vous pouvez m’écrire à{' '}
@@ -15,7 +17,7 @@ function ContactPage() {
 				.
 			</p>
 			<p>Au plaisir de vous lire !</p>
-		</>
+		</section>
 	);
 }
 
