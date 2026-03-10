@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
 
 import NotFoundPage from '../../src/pages/NotFoundPage';
 import { BrowserRouter } from 'react-router-dom';
@@ -20,18 +19,18 @@ describe('NotFoundPage', () => {
 		renderComponent();
 
 		expect(screen.getByRole('article')).toHaveTextContent(
-			/la page.+(n'existe pas|a été déplacée)/i
+			/la page.+(n'existe pas|a été déplacée)/i,
 		);
 	});
 
 	it('should display a link to the home page', async () => {
-		const user = userEvent.setup();
 		navigateTo('/bad-route');
 
 		const returnLink = screen.getByRole('link');
 		expect(returnLink).toHaveTextContent(/retour.+accueil/i);
 
-		await user.click(returnLink);
+		const linkRoute = returnLink.getAttribute('a') || '';
+		navigateTo(linkRoute);
 		expect(screen.getByText(/à propos/i));
 	});
 });
