@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import { type AppRoute } from '../../src/App.routes';
 import Navigation from '../../src/components/Navigation';
 
 describe('Navigation', () => {
 	function renderComponent(links: AppRoute[] = []) {
-		render(<Navigation links={links} />, { wrapper: BrowserRouter });
+		render(<Navigation links={links} />, { wrapper: HashRouter });
 	}
 
 	it('should render a navigation bar', () => {
@@ -30,7 +30,10 @@ describe('Navigation', () => {
 		expect(links).toHaveLength(routes.length);
 		for (let i = 0; i < links.length; i++) {
 			expect(links[i]).toHaveTextContent(routes[i].name);
-			expect(links[i]).toHaveAttribute('href', routes[i].path);
+			expect(links[i]).toHaveAttribute('href');
+			expect(links[i].getAttribute('href')).toMatch(
+				new RegExp(`${routes[i].path}`),
+			);
 		}
 	});
 });

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import App from '../src/App';
 import { rootRoute } from '../src/App.routes';
@@ -7,7 +7,7 @@ import { navigateTo } from './utils/router.helper';
 
 describe('App', () => {
 	function renderComponent() {
-		render(<App />, { wrapper: BrowserRouter });
+		render(<App />, { wrapper: HashRouter });
 	}
 
 	it('should display a title', () => {
@@ -22,7 +22,7 @@ describe('App', () => {
 		const navigationBar = screen.getByRole('navigation');
 
 		expect(navigationBar.getElementsByTagName('a')).toHaveLength(
-			rootRoute.children.length
+			rootRoute.children.length,
 		);
 	});
 

@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 
 import NotFoundPage from '../../src/pages/NotFoundPage';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { navigateTo } from '../utils/router.helper';
 
 describe('NotFoundPage', () => {
 	function renderComponent() {
-		render(<NotFoundPage />, { wrapper: BrowserRouter });
+		render(<NotFoundPage />, { wrapper: HashRouter });
 	}
 
 	it('should display a title stating "404 error"', () => {
