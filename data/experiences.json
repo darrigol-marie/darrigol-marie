@@ -1,0 +1,39 @@
+[{
+	"id": "2017-2022_dev-front-end_dst",
+    "date": "2017 - 2022",
+	"position": "Développeuse front-end",
+	"company": "Digital Shape Technologies",
+	"description": [
+		"J’ai rejoint l’équipe web de Digital Shape Technologies pour travailler sur un projet encore jeune : l’adaptation de leur application Webfolio, écrite en Java, en un dashboard web sous Angular. Cette application a pour objectif de présenter un sous-ensemble des données du logiciel initial sous forme de widget, que l’utilisateur peut ajouter et paramétrer sur son compte. Les dashboards créés sont liés à différents types de produits financiers (portefeuilles, biens immobiliers, actifs, etc.). Enfin, l’application a pour but d’être consultée sur ordinateur ou tablette, en ligne comme hors ligne.",
+		"Mon travail sur ce projet consistait à développer, avec le reste de l’équipe, de nouvelles fonctionnalités pour l’application au fur et à mesure des demandes. J’ai ainsi intégré de nouveaux widgets, l’accès à de nouveaux produits financiers, de nouveaux modules autres que les dashboards (pages des événements, liste de contacts, etc.). J’ai également travaillé sur des composants exclusifs à l’application web, comme une carte interactive affichant les biens immobiliers de l’utilisateur."
+	]
+}, {
+	"id": "2016-2017_stagiaire-dev-app_hn",
+	"date": "2016 - 2017",
+	"position": "Développeuse d'application (stagiaire)",
+	"company": "HAPPYneuron",
+	"description": [
+		"J’ai participé au développement d’une application web de remédiation cognitive en JavaScript et Node.js. Le but de ce projet était de rassembler sur un même logiciel les deux types de jeux proposés par HAPPYneuron : d’un côté les jeux développés par HAPPYneuron, disponibles sur le site de l’entreprise ; de l’autre, les jeux Créasoft — entreprise dont le groupe de HAPPYneuron a fait l’acquisition — accessibles uniquement sur une console bureau. Mon travail consistait à m’assurer que le lancement des jeux, le chargement des données et la sauvegarde des résultats se déroulent correctement.",
+		"De plus, les jeux développés par HAPPYneuron avaient la particularité de proposer plusieurs langues et variantes de jeux (niveaux de difficulté, paramètres modifiables, etc.). Ces variantes étaient stockées dans des fichiers XML. Pour les besoins de la nouvelle application, j’ai développé des outils permettant d’extraire les données des fichiers XML et de les stocker dans la base de données.",
+		"Enfin, la nouvelle application se devait de fonctionner dans différents environnements : sous différents systèmes d’exploitation (Mac et Windows), sur différents supports (navigateur web et console embarquée), ainsi qu’un mode en ligne et hors ligne.", 
+		"À l’issue de ma période de travail, j’ai rédigé une documentation complète de mes tâches et de ce qui restait à faire, de façon à faciliter la passation aux futurs développeurs et développeuses."
+	]
+}, {
+	"id": "2015_stagiaire-dev-web_bull",
+	"date": "2015",
+	"position": "Développeuse web (stagiaire)",
+	"company": "Bull",
+	"description": [
+		"Mon travail consistait à développer le portage mobile d’une application de gestion de machines IBM. Cette nouvelle version était destinée à un support tablette en mode paysage et devait permettre à l’utilisateur de choisir la version mobile ou bureau. J’avais deux aspects à prendre en compte pour ce projet : adapter non seulement le design de l’application pour un nouveau support, mais également de nouveaux widgets, qui présenteraient un sous-ensemble des fonctionnalités existantes.",
+		"Mes tâches concernant le design ont inclus la création d’un nouveau layout sur Dojo et l’intégration du design mobile, l’adaptation des widgets en tirant profit du code existant, et l’implémentation d’une fenêtre de dialogue pour sélectionner la version souhaitée. Enfin, bien que je programmais localement et que toutes les données étaient mockées, je devais également m’assurer que celles-ci soient traitées et affichées correctement dans la nouvelle application.",
+		"Le but de ce projet était de réaliser un prototype qui, s’il était suffisamment avancé au terme de mon contrat, pourrait être présenté lors d’une demande de fonds et servir de lancement pour un nouveau projet à part entière. J’ai personnellement assuré la présentation de mon travail à un responsable des équipes américaines d’IBM, qui était satisfait de mes progrès et enthousiaste pour l’avenir de l’application."
+	]
+}, {
+	"id": "2013_stagiaire-dev-web_glowbl",
+	"date": "2013",
+	"position": "Développeuse web (stagiaire)",
+	"company": "Glowbl",
+	"description": [
+		"J’ai rejoint l’équipe responsable du développement et de la maintenance du site internet de Glowbl. Mes premières tâches consistaient à intégrer de nouveaux éléments (bouton de connexion avec un site tiers, pop in de résiliation de compte, refonte de la page de contact avec système d’envoi de mail). J’ai ensuite harmonisé la charte graphique (création d’une bibliothèque de composants, écriture de classes CSS complémentaires, intégration d’un système de grille CSS). J’ai également corrigé et suivi plusieurs bogues en vue d’une mise en production imminente du site."
+	]
+}]

@@ -1,0 +1,22 @@
+[{
+    "id": "2026_personal-website",
+    "date": "2026",
+    "name": "Site personnel",
+    "description": [
+        "En tant que développeuse, je considère qu’il est essentiel de présenter son travail au public, pour illustrer ce qu’on est capable de réaliser et ce qu’on souhaite accomplir. C’est pourquoi j’ai créé le site que vous visitez actuellement : il me sert de vitrine, en complément de mon profil LinkedIn et mon CV.",
+        "Je l’utilise également comme d’un espace d’expérimentation personnel. Je peux y intégrer des éléments que j’ai envie d’explorer en parallèle à mon activité quotidienne, que ce soit des technologies qui me sont nouvelles ou des principes de design qui m’inspirent."
+    ]
+},
+{
+    "id": "2024_evolution-narration-lou",
+    "date": "2024",
+    "name": "Évolution des procédés narratifs dans la série Lou!",
+    "description": [
+        "Dans cet article, j’étudie les changements de narration au travers de plusieurs albums de la série Lou! de Julien Neel. J’analyse notamment les procédés graphiques propres à la bande dessinée (découpage des pages, utilisation des cases, etc.), mais aussi les choix narratifs de l’auteur, par exemple le développement parallèle de Lou et de sa mère. En m’appuyant sur plusieurs ressources et auteurs reconnus dans le milieu de la bande dessinée, j’illustre que si le format de l’histoire a changé au fil des tomes, on retrouve très tôt des éléments qui sont explorés et mis en valeur dans les albums suivants.",
+        "Cet article a été écrit comme travail de fin de session pour le cours « De la bande dessinée au roman graphique » de M. Dominguez Leiva, professeur à l’UQAM. C’est lui qui m’a proposé de publier mon travail sur le site Pop-En-Stock, dont il est le directeur de la revue."
+    ],
+    "link": {
+        "source": "https://popenstock.uqam.ca/articles/evolution-des-procedes-narratifs-dans-la-serie-lou",
+        "text": "Vous pouvez consulter l’article sur le site de Pop-En-Stock."
+    }
+}]
