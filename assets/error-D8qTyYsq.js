@@ -1,1 +1,0 @@
-import{c as t,b as r,j as e,r as o,R as s,a}from"./NotFoundPage-B73BTSr3.js";const c=t([{element:e.jsx(a,{})}]);r.createRoot(document.getElementById("root")).render(e.jsx(o.StrictMode,{children:e.jsx(s,{router:c})}));
