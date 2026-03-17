@@ -1,1 +1,0 @@
-import{c as r,j as e,r as t,H as s}from"./Header-Be1C2aIn.js";r.createRoot(document.getElementById("root")).render(e.jsxs(t.StrictMode,{children:[e.jsx(s,{title:"Erreur 404"}),e.jsxs("div",{id:"page",children:[e.jsx("article",{children:"La page que vous cherchez n'existe pas ou a été déplacée."}),e.jsx("a",{href:"/",children:"Retour à l'accueil"})]})]}));
