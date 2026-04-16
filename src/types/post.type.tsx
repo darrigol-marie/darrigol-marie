@@ -3,15 +3,6 @@ export interface PostLink {
 	text: string;
 }
 
-export interface PostProps {
-	id: string;
-	title: string;
-	date: string;
-	paragraphs: string[];
-	subtitle?: string;
-	link?: PostLink;
-}
-
 export interface PostData {
 	id: string;
 	date: string;
@@ -19,7 +10,7 @@ export interface PostData {
 	link?: PostLink;
 }
 
-export class Post {
+export class PostItem {
 	id: string;
 	title: string;
 	date: string;

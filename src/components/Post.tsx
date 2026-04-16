@@ -1,8 +1,15 @@
 import './Post.scss';
 
-import { type PostProps } from '../types/post.type';
+import { type PostItem } from '../types/post.type';
 
-function Post({ id, title, date, subtitle, paragraphs, link }: PostProps) {
+interface Props {
+	post: PostItem;
+}
+
+function Post({ post }: Props) {
+	const { id, title, date, subtitle, paragraphs, link } = post;
+	console.log(post);
+
 	return (
 		<article key={id} className="post">
 			<header className="post-header">

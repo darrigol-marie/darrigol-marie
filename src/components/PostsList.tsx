@@ -1,10 +1,10 @@
 import './PostsList.scss';
 
 import Post from './Post';
-import { type PostProps } from '../types/post.type';
+import { PostItem } from '../types/post.type';
 
 interface Props {
-	posts: PostProps[];
+	posts: PostItem[];
 }
 
 function PostsList({ posts }: Props) {
@@ -12,15 +12,7 @@ function PostsList({ posts }: Props) {
 		<>
 			{posts.length === 0 && <p>Aucun élément à afficher.</p>}
 			{posts.map((post) => (
-				<Post
-					key={post.id}
-					id={post.id}
-					title={post.title}
-					date={post.date}
-					subtitle={post.subtitle}
-					paragraphs={post.paragraphs}
-					link={post.link}
-				/>
+				<Post post={post} />
 			))}
 		</>
 	);

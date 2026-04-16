@@ -1,5 +1,5 @@
 import type { ExperienceData } from "../../src/types/experience.type";
-import type { Project } from "../../src/pages/ProjectsPage";
+import type { ProjectData } from "../../src/types/project.type";
 
 export const mockupExperiences: ExperienceData[] = [
     {
@@ -11,7 +11,7 @@ export const mockupExperiences: ExperienceData[] = [
     },
 ];
 
-export const mockupProjects: Project[] = [
+export const mockupProjects: ProjectData[] = [
 		{
 			id: 'project-test',
 			date: '202X',
