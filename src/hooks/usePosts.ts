@@ -1,19 +1,26 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-import type { Post } from '../types/post.type';
 import { ExperiencePost, type ExperienceData } from '../types/experience.type';
 
-export const usePosts = () => {
-    return useQuery<Post[]>({
-        queryKey: ['experience'],
+type UsePostsOptions = {
+    queryKey: string[],
+    url: string,
+    dataMapper: (item: ExperienceData) => ExperiencePost,
+};
+
+export const usePosts = ({
+    queryKey,
+    url,
+    dataMapper
+}: UsePostsOptions) => {
+    return useQuery<ExperiencePost[]>({
+        queryKey,
         queryFn: () =>
             axios
-                .get('/experiences.json')
+                .get(url)
                 .then((response) =>
-                    response.data.map(
-                        (experience: ExperienceData) => new ExperiencePost(experience),
-                    ),
+                    response.data.map(dataMapper),
                 ),
     });
 };
