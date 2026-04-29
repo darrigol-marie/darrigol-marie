@@ -10,7 +10,6 @@ interface Props {
 function PostsList({ posts }: Props) {
 	return (
 		<>
-			{posts.length === 0 && <p>Aucun élément à afficher.</p>}
 			{posts.map((post) => (
 				<Post post={post} />
 			))}
