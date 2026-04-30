@@ -28,27 +28,27 @@ describe('ExperiencePage', () => {
 	async function completeComponentRendering() {
 		renderComponent();
 
-		await waitForElementToBeRemoved(() => screen.getByText(/chargement/i));
+		await waitForElementToBeRemoved(() => screen.getByTitle(/animation/i));
 	}
 
 	it('should display a loading text while loading data', () => {
 		renderComponent();
 
-		expect(screen.getByText(/chargement/i)).toBeInTheDocument();
+		expect(screen.getByTitle(/animation/i)).toBeInTheDocument();
 		expect(screen.queryByText(/aucun/i)).not.toBeInTheDocument();
 	});
 
 	it('should remove the loading text when data are loaded', async () => {
 		await waitFor(completeComponentRendering);
 
-		expect(screen.queryByText(/chargement/i)).not.toBeInTheDocument();
+		expect(screen.queryByTitle(/animation/i)).not.toBeInTheDocument();
 	});
 
 	it('should display a message when no experience were found', async () => {
 		server.use(
 			http.get('/experiences.json', () => {
 				return HttpResponse.json([]);
-			})
+			}),
 		);
 
 		await waitFor(completeComponentRendering);

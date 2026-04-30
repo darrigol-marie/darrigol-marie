@@ -10,7 +10,7 @@ function LoadingScreen({ isLoading, isError, children }: LoadingScreenProps) {
 		return <p>Une erreur est survenue.</p>;
 	}
 
-	return <Loader /> /*isLoading ? <p>Chargement...</p> : <>{children}</>*/;
+	return isLoading ? <Loader /> : <>{children}</>;
 }
 
 export default LoadingScreen;

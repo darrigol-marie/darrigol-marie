@@ -25,7 +25,7 @@ describe('ProjectsPage', () => {
 	it('should render the name of each project as heading', async () => {
 		renderComponent();
 
-		await waitForElementToBeRemoved(screen.getByText(/chargement/i));
+		await waitForElementToBeRemoved(screen.getByTitle(/animation/i));
 
 		expectPropToBeRenderedForEachComponent('name', mockupProjects);
 	});
@@ -33,7 +33,7 @@ describe('ProjectsPage', () => {
 	it('should render a description for each project', async () => {
 		renderComponent();
 
-		await waitForElementToBeRemoved(screen.getByText(/chargement/i));
+		await waitForElementToBeRemoved(screen.getByTitle(/animation/i));
 
 		expectPropToBeRenderedForEachComponent('description', mockupProjects);
 	});
