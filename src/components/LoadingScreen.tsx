@@ -1,7 +1,7 @@
 import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
 
 interface Props {
-	query: UseQueryOptions;
+	query: UseQueryOptions; // TODO: see if we really need to pass the entire query to the component or if it can be created internally
 }
 
 function LoadingScreen({ query }: Props) {

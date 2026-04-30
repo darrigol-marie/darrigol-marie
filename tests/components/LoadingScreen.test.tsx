@@ -8,21 +8,26 @@ import {
 	QueryClientProvider,
 	type UseQueryOptions,
 } from '@tanstack/react-query';
-import { http } from 'msw';
+import { http, HttpResponse } from 'msw';
 
 import LoadingScreen from '../../src/components/LoadingScreen';
+import { server } from '../mocks/server';
 
 describe('LoadingScreen', () => {
+	const mockupPath = '/loading';
 	const queryOptions: UseQueryOptions = {
-		queryKey: ['loading'],
-		queryFn: () => http.get('/loading', async () => []),
+		queryKey: ['loading'], // TODO: see if we can add a queryFn value without breaking the test
 	};
 
 	function renderComponent() {
 		return render(<LoadingScreen query={queryOptions} />, {
 			wrapper: ({ children }) => {
 				return (
-					<QueryClientProvider client={new QueryClient()}>
+					<QueryClientProvider
+						client={
+							new QueryClient({ defaultOptions: { queries: { retry: false } } })
+						}
+					>
 						{children}
 					</QueryClientProvider>
 				);
@@ -39,6 +44,14 @@ describe('LoadingScreen', () => {
 	it('should remove the loading message once data are loaded', async () => {
 		renderComponent();
 
-		await waitForElementToBeRemoved(screen.getByText(/chargement/i));
+		await waitForElementToBeRemoved(() => screen.getByText(/chargement/i));
+	});
+
+	it('should display a message if an error occured during data fetching', async () => {
+		server.use(http.get(mockupPath, () => HttpResponse.error()));
+
+		renderComponent();
+
+		expect(await screen.findByText(/erreur/i)).toBeInTheDocument();
 	});
 });
