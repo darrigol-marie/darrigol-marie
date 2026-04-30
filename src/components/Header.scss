@@ -24,12 +24,12 @@
   }
 }
 
-@media (max-height: variables.$small-device-height) {
+@media (max-width: variables.$mobile-device-max-width) {
   .header {
     flex: 0;
 
     &-title {
-    margin-top: 10px;
-  }
+      margin-top: 10px;
+    }
   }
 }

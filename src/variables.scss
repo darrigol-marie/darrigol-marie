@@ -10,4 +10,9 @@ $white-color: #fafafa;
 $small-device-width: 1080px;
 $small-device-height: 900px;
 
+// Based on most used screen resolution in 2025:
+// Mobile: from 360x640 to 430x932
+// Tablet: from 768x1024 to 1280x800
+// Desktop: from 1280x720 to 2560x1440
+$mobile-device-min-width: 359px;
 $mobile-device-max-width: 431px;
