@@ -1,8 +1,15 @@
 @use './variables.scss';
 
+#title {
+  display: flex;
+  flex: 1;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
 #page {
   padding: 5px;
-  flex: 1;
+  flex: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,14 +17,26 @@
 
 #content {
   max-width: 1080px;
-  margin: auto;
 
   border: 1px solid variables.$secondary-color;
   background-color: variables.$text-background-color;
+
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden-overflow {
+  max-height: 100%;
+  overflow-y: hidden;
 }
 
 main {
   padding: 15px;
 
   text-align: justify;
+
+  max-height: 100%;
+  overflow-y: auto;
 }

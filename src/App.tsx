@@ -22,12 +22,12 @@ function App() {
 
 	return (
 		<>
-			<div id="page">
-				<div id="content">
-					<header>
-						<Header title={currentRoute ? currentRoute.name : 'Title'} />
-						<Navigation links={appRoutes} />
-					</header>
+			<header id="title">
+				<Header title={currentRoute ? currentRoute.name : 'Title'} />
+			</header>
+			<div id="page" className="hidden-overflow">
+				<div id="content" className="hidden-overflow">
+					<Navigation links={appRoutes} />
 					<main>
 						<Outlet />
 					</main>
