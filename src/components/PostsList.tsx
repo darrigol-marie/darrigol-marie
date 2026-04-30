@@ -1,4 +1,5 @@
 export interface Post {
+	id: string;
 	title: string;
 	text: string;
 	date?: string;
@@ -14,7 +15,7 @@ function PostsList({ posts }: Props) {
 		<>
 			{posts.length === 0 && <p>Aucun élément à afficher.</p>}
 			{posts.map((post) => (
-				<article>
+				<article key={post.id}>
 					<header>
 						{post.date && <time>{post.date}</time>}
 						<h2>{post.title}</h2>

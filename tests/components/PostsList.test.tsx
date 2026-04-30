@@ -10,7 +10,7 @@ import PostsList, { type Post } from '../../src/components/PostsList';
 type ElementValue<T> = T extends undefined ? null : HTMLElement;
 
 type ElementProps = {
-	[Key in keyof Post]: ElementValue<Post[Key]>;
+	[Key in keyof Post as Key extends 'id' ? never : Key]: ElementValue<Post[Key]>;
 };
 
 interface Props {
@@ -23,7 +23,9 @@ type RequiredKeyOfPost = keyof {
 };
 
 describe('PostsList', () => {
-	const basicMockupPosts: Post[] = [{ title: 'Post Title', text: 'Post Text' }];
+	const basicMockupPosts: Post[] = [
+		{ id: 'test', title: 'Post Title', text: 'Post Text' },
+	];
 
 	function renderComponent(postsToRender: Post[] = basicMockupPosts): Props {
 		render(<PostsList posts={postsToRender} />);
@@ -63,7 +65,7 @@ describe('PostsList', () => {
 
 	function checkHTMLElementsForComponentOptionalFeature(
 		postsElements: ElementProps[],
-		featureKey: keyof Post,
+		featureKey: keyof ElementProps,
 		renderedPosts: Post[]
 	) {
 		expect(postsElements).toHaveLength(renderedPosts.length);
@@ -106,13 +108,19 @@ describe('PostsList', () => {
 
 	it('should display a date if specified for a post', () => {
 		const mockupPosts: Post[] = [
-			{ title: 'Post Without a Date', text: 'This post should not have a date.' },
 			{
+				id: 'post-nodate',
+				title: 'Post Without a Date',
+				text: 'This post should not have a date.',
+			},
+			{
+				id: 'post-date-1',
 				title: 'Post With a Date',
 				text: 'This post should have a date.',
 				date: '2025-07-18',
 			},
 			{
+				id: 'post-date-2',
 				title: 'Another Post With a Date',
 				text: 'This post should also have a date.',
 				date: '2025-07-10',
@@ -131,10 +139,12 @@ describe('PostsList', () => {
 	it('should display a subtitle if specified for a post', () => {
 		const mockupPosts: Post[] = [
 			{
+				id: 'post-no-subtitle',
 				title: 'Post Without a Subtitle',
 				text: 'This post should not have a subtitle.',
 			},
 			{
+				id: 'post-subtitle',
 				title: 'Post With a SubTitle',
 				text: 'This post should have a subtitle.',
 				subtitle: 'This is a subtitle',
