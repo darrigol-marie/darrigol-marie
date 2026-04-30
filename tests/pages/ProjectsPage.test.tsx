@@ -1,69 +1,64 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 
 import ProjectsPage, { type Project } from '../../src/pages/ProjectsPage';
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+import { renderWithRouter } from '../utils/router.helper';
+
+interface Props {
+	projectsList: HTMLElement[];
+	noProjectMessage: HTMLElement | null;
+}
 
 describe('ProjectsPage', () => {
-	const projects: Project[] = [
+	const mockupProjects: Project[] = [
 		{ name: 'Project Name', description: 'Project description' },
 	];
 
-	async function renderComponent(projects: Project[]) {
-		const router = createMemoryRouter(
-			[
-				{
-					element: <ProjectsPage />,
-					path: '/',
-					loader: () => projects,
-					hydrateFallbackElement: <></>,
-				},
-			],
-			{
-				initialEntries: ['/'],
-				initialIndex: 1,
-			}
-		);
+	async function renderComponent(projects: Project[] = []): Promise<Props> {
+		renderWithRouter(<ProjectsPage />, projects);
 
-		render(<RouterProvider router={router} />);
 		await waitFor(() => screen.getByRole('paragraph'));
-	}
 
-	function searchForNoProjectMessage() {
-		return screen.queryByText(/aucun projet/i);
+		return {
+			projectsList: screen.queryAllByRole('article'),
+			noProjectMessage: screen.queryByText(/aucun projet/i),
+		};
 	}
 
 	it('should render a message when there is no project to display', async () => {
-		await renderComponent([]);
+		const component = await renderComponent();
 
-		expect(searchForNoProjectMessage()).toBeInTheDocument();
+		expect(component.projectsList).toHaveLength(0);
+		expect(component.noProjectMessage).toBeInTheDocument();
 	});
 
 	it('should render a list of the given projects', async () => {
-		await renderComponent(projects);
+		const component = await renderComponent(mockupProjects);
 
-		expect(screen.getAllByRole('article')).toHaveLength(projects.length);
-		expect(searchForNoProjectMessage()).not.toBeInTheDocument();
+		expect(component.projectsList).toHaveLength(mockupProjects.length);
+		expect(component.noProjectMessage).not.toBeInTheDocument();
 	});
 
 	it('should render the name of each project as heading', async () => {
-		await renderComponent(projects);
+		await renderComponent(mockupProjects);
 
 		const projectHeadings = screen.getAllByRole('heading');
 
-		expect(projectHeadings).toHaveLength(projects.length);
+		expect(projectHeadings).toHaveLength(mockupProjects.length);
 		for (let i = 0; i < projectHeadings.length; i++) {
-			expect(projectHeadings[i]).toHaveTextContent(projects[0].name);
+			expect(projectHeadings[i]).toHaveTextContent(mockupProjects[0].name);
 		}
 	});
 
 	it('should render a description for each project', async () => {
-		await renderComponent(projects);
+		await renderComponent(mockupProjects);
 
 		const projectDescriptions = screen.getAllByRole('paragraph');
 
-		expect(projectDescriptions).toHaveLength(projects.length);
+		expect(projectDescriptions).toHaveLength(mockupProjects.length);
 		for (let i = 0; i < projectDescriptions.length; i++) {
-			expect(projectDescriptions[i]).toHaveTextContent(projects[0].description);
+			expect(projectDescriptions[i]).toHaveTextContent(
+				mockupProjects[0].description
+			);
 		}
 	});
 });
