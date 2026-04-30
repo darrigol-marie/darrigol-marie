@@ -7,5 +7,9 @@ export interface ProjectData extends PostData {
 export class ProjectPost extends PostItem {
 	constructor(data: ProjectData) {
 		super(data, data.name);
+
+		if (data.link) {
+			this.setLink(data.link);
+		}
 	}
 }
