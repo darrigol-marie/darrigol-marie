@@ -7,7 +7,9 @@ function NotFoundPage() {
 			<Header title="Erreur 404" />
 			<div id="page">
 				<article>La page que vous cherchez n'existe pas ou a été déplacée.</article>
-				<NavLink to="/">Retour à l'accueil</NavLink>
+				<NavLink to="/" reloadDocument>
+					Retour à l'accueil
+				</NavLink>
 			</div>
 		</>
 	);
