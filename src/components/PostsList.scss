@@ -1,8 +1,6 @@
 @use '../variables.scss';
 
 $article-margin: 20px;
-$text-margin: 15px;
-$title-margin: 5px;
 
 .post {
     border-bottom: 3px solid transparent;
@@ -17,31 +15,5 @@ $title-margin: 5px;
 
         margin-bottom: 0;
         padding-bottom: 0;
-    }
-
-    header {
-        color: variables.$primary-color;
-
-        font-family: "Oswald";
-
-        h2 {
-            margin: $title-margin 0;
-        }
-
-        p {
-            margin: 0;
-
-            font-style: italic;
-        }
-
-        time {
-            font-size: 0.8em;
-        }
-    }
-
-    p {
-        margin: 0;
-        margin-top: $text-margin;
-        white-space: pre-wrap;
     }
 }
