@@ -29,6 +29,9 @@ jobs:
    - name: Install Node dependencies
      run: npm ci
 
+   - name: Audit dependencies for moderate or higher security vulnerabilities
+     run: npm audit --audit-level=moderate
+
    - name: Build project
      run: npm run build --if-present
 
