@@ -8,7 +8,6 @@ interface Props {
 
 function Post({ post }: Props) {
 	const { id, title, date, subtitle, paragraphs, link } = post;
-	console.log(post);
 
 	return (
 		<article key={id} className="post">
