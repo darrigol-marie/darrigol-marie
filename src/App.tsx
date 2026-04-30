@@ -1,14 +1,13 @@
 import { Outlet } from 'react-router-dom';
+import { QueryClientProvider } from '@tanstack/react-query';
 
 import { rootRoute } from './App.routes';
 import './App.scss';
 
+import { queryClient } from './config/query';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-const queryClient = new QueryClient();
 
 function App() {
 	return (
