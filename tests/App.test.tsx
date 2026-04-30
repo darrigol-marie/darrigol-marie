@@ -1,11 +1,12 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 
 import App from '../src/App';
 import { appRoutes } from '../src/App.routes';
 
 describe('App', () => {
 	function renderComponent() {
-		render(<App />);
+		render(<App />, { wrapper: BrowserRouter });
 	}
 
 	it('should display the page container', () => {
@@ -14,10 +15,10 @@ describe('App', () => {
 		expect(screen.getByRole('main')).toBeInTheDocument();
 	});
 
-	it('should display a title saying "Accueil"', () => {
+	it('should display a title saying "À propos"', () => {
 		renderComponent();
 
-		expect(screen.getByRole('heading')).toHaveTextContent(/accueil/i);
+		expect(screen.getByRole('heading')).toHaveTextContent(/à propos/i);
 	});
 
 	it('should display a navigation bar with a link to each page', () => {
