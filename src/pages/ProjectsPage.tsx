@@ -1,6 +1,8 @@
 import { useLoaderData } from 'react-router-dom';
+import PostsList from '../components/PostsList';
 
 export interface Project {
+	id: string;
 	name: string;
 	description: string;
 }
@@ -9,17 +11,15 @@ function ProjectsPage() {
 	const projects: Project[] = useLoaderData();
 
 	return (
-		<>
-			{projects.length == 0 && <p>Aucun projet à afficher.</p>}
-			{projects.map((project) => {
-				return (
-					<article key={project.name}>
-						<h2>{project.name}</h2>
-						<p>{project.description}</p>
-					</article>
-				);
+		<PostsList
+			posts={projects.map((project) => {
+				return {
+					id: project.id,
+					title: project.name,
+					text: project.description,
+				};
 			})}
-		</>
+		/>
 	);
 }
 
