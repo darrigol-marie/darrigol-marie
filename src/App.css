@@ -24,6 +24,9 @@ h1 {
 }
 
 nav {
+  position: sticky;
+  top: 0;
+
   background-color: blueviolet;
 
   color: white;
