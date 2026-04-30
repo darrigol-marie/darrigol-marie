@@ -1,23 +1,18 @@
-interface PropsElement {
-	type: string;
-	content: string;
-}
-
 interface Props {
 	title: string;
 	date: string;
-	content: PropsElement[];
+	paragraphs: string[];
 	subtitle?: string;
 }
 
-function Post({ title, date, subtitle, content }: Props) {
+function Post({ title, date, subtitle, paragraphs }: Props) {
 	return (
 		<>
 			<h1>{title}</h1>
 			<time>{date}</time>
 			{subtitle && <p role="doc-subtitle">{subtitle}</p>}
-			{content.map((element) => (
-				<p>{element.content}</p>
+			{paragraphs.map((paragraph) => (
+				<p>{paragraph}</p>
 			))}
 		</>
 	);
