@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 import App from '../src/App';
-import type { Page } from '../src/types/page.type';
+import { sitePages, type Page } from '../src/types/page.type';
 
 describe('App', () => {
 	function renderComponent(pages: Page[] = []) {
@@ -21,11 +21,12 @@ describe('App', () => {
 	});
 
 	it('should display a navigation bar with a link to each page', () => {
-		const pages: Page[] = [{ name: 'Home' }]; // should be a list of all the available pages
-		renderComponent(pages);
+		renderComponent(sitePages);
 
 		const navigationBar = screen.getByRole('navigation');
 
-		expect(navigationBar.getElementsByTagName('a')).toHaveLength(pages.length);
+		expect(navigationBar.getElementsByTagName('a')).toHaveLength(
+			sitePages.length
+		);
 	});
 });
