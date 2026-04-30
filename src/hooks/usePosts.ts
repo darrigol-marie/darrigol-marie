@@ -1,20 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-import { ExperiencePost, type ExperienceData } from '../types/experience.type';
+import type { Post, PostData } from '../types/post.type';
 
-type UsePostsOptions = {
+type UsePostsOptions<T extends PostData, U extends Post> = {
     queryKey: string[],
     url: string,
-    dataMapper: (item: ExperienceData) => ExperiencePost,
+    dataMapper: (item: T) => U,
 };
 
-export const usePosts = ({
+export const usePosts = <T extends PostData, U extends Post>({
     queryKey,
     url,
     dataMapper
-}: UsePostsOptions) => {
-    return useQuery<ExperiencePost[]>({
+}: UsePostsOptions<T, U>) => {
+    return useQuery<U[]>({
         queryKey,
         queryFn: () =>
             axios

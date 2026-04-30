@@ -1,14 +1,14 @@
 import PostsList from '../components/PostsList';
 import LoadingScreen from '../components/LoadingScreen';
 import { usePosts } from '../hooks/usePosts';
-import { ExperiencePost } from '../types/experience.type';
+import { ExperiencePost, type ExperienceData } from '../types/experience.type';
 
 function ExperiencePage() {
 	const {
 		data = [],
 		isLoading,
 		isError,
-	} = usePosts({
+	} = usePosts<ExperienceData, ExperiencePost>({
 		queryKey: ['experience'],
 		url: '/experiences.json',
 		dataMapper: (item) => new ExperiencePost(item),

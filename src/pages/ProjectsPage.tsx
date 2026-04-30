@@ -1,9 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-
 import PostsList from '../components/PostsList';
 import LoadingScreen from '../components/LoadingScreen';
+import { usePosts } from '../hooks/usePosts';
 import type { PostLink } from '../types/post.type';
+import { ProjectPost, type ProjectData } from '../types/project.type';
 
 export interface Project {
 	id: string;
@@ -18,24 +17,15 @@ function ProjectsPage() {
 		data = [],
 		isLoading,
 		isError,
-	} = useQuery({
+	} = usePosts<ProjectData, ProjectPost>({
 		queryKey: ['projects'],
-		queryFn: () => axios.get('/projects.json').then((response) => response.data),
+		url: '/projects.json',
+		dataMapper: (item) => new ProjectPost(item),
 	});
 
 	return (
 		<LoadingScreen isLoading={isLoading} isError={isError}>
-			<PostsList
-				posts={data.map((project: Project) => {
-					return {
-						id: project.id,
-						date: project.date,
-						title: project.name,
-						paragraphs: project.description,
-						link: project.link,
-					};
-				})}
-			/>
+			<PostsList posts={data} />
 		</LoadingScreen>
 	);
 }
