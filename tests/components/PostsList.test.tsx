@@ -1,9 +1,4 @@
-import {
-	render,
-	screen,
-	within,
-	type ByRoleMatcher,
-} from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 
 import PostsList, { type Post } from '../../src/components/PostsList';
 
@@ -17,10 +12,6 @@ interface Props {
 	noPostMessage: HTMLElement | null;
 	postsElements: ElementProps[];
 }
-
-type RequiredKeyOfPost = keyof {
-	[Key in keyof Post as Omit<Post, Key> extends Post ? never : Key]: Post[Key];
-};
 
 describe('PostsList', () => {
 	const basicMockupPosts: Post[] = [
@@ -49,24 +40,10 @@ describe('PostsList', () => {
 		};
 	}
 
-	function expectRequiredComponentFeatureToHaveHTMLElement(
-		requiredComponentFeature: RequiredKeyOfPost,
-		elementType: ByRoleMatcher
-	) {
-		const postsElements = screen.getAllByRole(elementType);
-
-		expect(postsElements).toHaveLength(basicMockupPosts.length);
-		for (let i = 0; i < postsElements.length; i++) {
-			expect(postsElements[i]).toHaveTextContent(
-				basicMockupPosts[i][requiredComponentFeature]
-			);
-		}
-	}
-
-	function checkHTMLElementsForComponentOptionalFeature(
+	function checkHTMLElementsForComponentFeature(
 		postsElements: ElementProps[],
 		featureKey: keyof ElementProps,
-		renderedPosts: Post[]
+		renderedPosts: Post[] = basicMockupPosts
 	) {
 		expect(postsElements).toHaveLength(renderedPosts.length);
 
@@ -95,15 +72,15 @@ describe('PostsList', () => {
 	});
 
 	it('should display a title for each post', () => {
-		renderComponent();
+		const component = renderComponent();
 
-		expectRequiredComponentFeatureToHaveHTMLElement('title', 'heading');
+		checkHTMLElementsForComponentFeature(component.postsElements, 'title');
 	});
 
 	it('should display a text for each post', () => {
-		renderComponent();
+		const component = renderComponent();
 
-		expectRequiredComponentFeatureToHaveHTMLElement('text', 'paragraph');
+		checkHTMLElementsForComponentFeature(component.postsElements, 'text');
 	});
 
 	it('should display a date if specified for a post', () => {
@@ -129,7 +106,7 @@ describe('PostsList', () => {
 
 		const component = renderComponent(mockupPosts);
 
-		checkHTMLElementsForComponentOptionalFeature(
+		checkHTMLElementsForComponentFeature(
 			component.postsElements,
 			'date',
 			mockupPosts
@@ -153,7 +130,7 @@ describe('PostsList', () => {
 
 		const component = renderComponent(mockupPosts);
 
-		checkHTMLElementsForComponentOptionalFeature(
+		checkHTMLElementsForComponentFeature(
 			component.postsElements,
 			'subtitle',
 			mockupPosts
