@@ -1,0 +1,29 @@
+.loader {
+  margin: 10px;
+
+  &-element {
+    display: inline-block;
+    margin: 0 4px;
+    animation: spin 1250ms ease-in-out infinite;
+
+    &:nth-child(2) {
+      animation-delay: 150ms;
+    }
+
+    &:last-child {
+      animation-delay: 275ms;
+    }
+
+    &-symbol {
+      border: 3px solid variables.$secondary-color;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}

@@ -41,36 +41,6 @@
   overflow-y: hidden;
 }
 
-.loader {
-  margin: 10px;
-
-  &-element {
-    display: inline-block;
-    margin: 0 5px;
-    animation: spin 1250ms ease-in-out infinite;
-
-    &:nth-child(2) {
-      animation-delay: 150ms;
-    }
-
-    &:last-child {
-      animation-delay: 275ms;
-    }
-
-    &-symbol {
-      border: 3px solid variables.$secondary-color;
-      width: 30px;
-      height: 30px;
-      transform: rotate(45deg);
-    }
-  }
-}
-
-@keyframes spin {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
-}
-
 @media (max-height: variables.$small-device-height) {
   #title {
     flex: none;

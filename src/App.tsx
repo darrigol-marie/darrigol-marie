@@ -25,17 +25,6 @@ function App() {
 				</div>
 				<Footer />
 			</QueryClientProvider>
-			<div className="loader">
-				<div className="loader-element">
-					<div className="loader-element-symbol"></div>
-				</div>
-				<div className="loader-element">
-					<div className="loader-element-symbol"></div>
-				</div>
-				<div className="loader-element">
-					<div className="loader-element-symbol"></div>
-				</div>
-			</div>
 		</>
 	);
 }
