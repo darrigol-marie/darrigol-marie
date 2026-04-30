@@ -5,10 +5,6 @@ import ExperiencePage, {
 } from '../../src/pages/ExperiencePage';
 import { renderWithRouter } from '../utils/router.helper';
 
-interface Props {
-	experiencesList: HTMLElement[];
-}
-
 describe('ExperiencePage', () => {
 	const mockupExperiences: Experience[] = [
 		{
@@ -20,49 +16,39 @@ describe('ExperiencePage', () => {
 		},
 	];
 
-	async function renderComponent(
-		experiences: Experience[] = []
-	): Promise<Props> {
-		renderWithRouter(<ExperiencePage />, experiences);
+	function expectPropToBeRenderedForEachElement(prop: keyof Experience) {
+		for (let i = 0; i < mockupExperiences.length; i++) {
+			expect(screen.getByText(mockupExperiences[i][prop])).toBeInTheDocument();
+		}
+	}
+
+	async function renderComponent(): Promise<void> {
+		renderWithRouter(<ExperiencePage />, mockupExperiences);
 
 		await waitFor(() => screen.getByRole('article'));
-
-		return {
-			experiencesList: screen.queryAllByRole('article'),
-		};
 	}
 
 	it('should display the date for each experience', async () => {
-		await renderComponent(mockupExperiences);
+		await renderComponent();
 
-		for (let i = 0; i < mockupExperiences.length; i++) {
-			expect(screen.getByText(mockupExperiences[i].date)).toBeInTheDocument();
-		}
+		expectPropToBeRenderedForEachElement('date');
 	});
 
 	it('should display the job position for each experience', async () => {
-		await renderComponent(mockupExperiences);
+		await renderComponent();
 
-		for (let i = 0; i < mockupExperiences.length; i++) {
-			expect(screen.getByText(mockupExperiences[i].position)).toBeInTheDocument();
-		}
+		expectPropToBeRenderedForEachElement('position');
 	});
 
 	it('should display the company name for each experience', async () => {
-		await renderComponent(mockupExperiences);
+		await renderComponent();
 
-		for (let i = 0; i < mockupExperiences.length; i++) {
-			expect(screen.getByText(mockupExperiences[i].company)).toBeInTheDocument();
-		}
+		expectPropToBeRenderedForEachElement('company');
 	});
 
 	it('should display the description of each experience', async () => {
-		await renderComponent(mockupExperiences);
+		await renderComponent();
 
-		for (let i = 0; i < mockupExperiences.length; i++) {
-			expect(
-				screen.getByText(mockupExperiences[i].description)
-			).toBeInTheDocument();
-		}
+		expectPropToBeRenderedForEachElement('description');
 	});
 });
