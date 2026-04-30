@@ -3,7 +3,7 @@ import './Footer.scss';
 function Footer() {
 	return (
 		<footer>
-			<small>© 2025 Marie Darrigol</small>
+			<small>© 2026 Marie Darrigol</small>
 		</footer>
 	);
 }
