@@ -1,12 +1,19 @@
 import './Header.scss';
 
-function Header() {
+type Props = {
+	title: string;
+	subtitle?: string;
+};
+
+function Header({ title, subtitle }: Props) {
 	return (
 		<div className="header">
-			<h1 className="header-title">Marie Darrigol</h1>
-			<p className="header-subtitle" role="doc-subtitle">
-				Développeuse web
-			</p>
+			<h1 className="header-title">{title}</h1>
+			{subtitle && (
+				<p className="header-subtitle" role="doc-subtitle">
+					{subtitle}
+				</p>
+			)}
 		</div>
 	);
 }

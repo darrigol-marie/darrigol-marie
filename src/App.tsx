@@ -10,9 +10,7 @@ import Navigation from './components/Navigation';
 function App() {
 	return (
 		<>
-			<header id="title">
-				<Header />
-			</header>
+			<Header title="Marie Darrigol" subtitle="Développeuse web" />
 			<div id="page" className="hidden-overflow">
 				<div id="content" className="hidden-overflow">
 					<Navigation links={rootRoute.children} />
