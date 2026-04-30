@@ -61,6 +61,23 @@ describe('PostsList', () => {
 		}
 	}
 
+	function checkHTMLElementsForComponentOptionalFeature(
+		postsElements: ElementProps[],
+		featureKey: keyof Post,
+		renderedPosts: Post[]
+	) {
+		expect(postsElements).toHaveLength(renderedPosts.length);
+
+		for (let i = 0; i < postsElements.length; i++) {
+			const featureElement = postsElements[i][featureKey];
+			const featureValue = renderedPosts[i][featureKey];
+
+			featureValue
+				? expect(featureElement).toHaveTextContent(featureValue)
+				: expect(featureElement).not.toBeInTheDocument();
+		}
+	}
+
 	it('should display a message if there is no element to display', () => {
 		const component = renderComponent([]);
 
@@ -101,17 +118,14 @@ describe('PostsList', () => {
 				date: '2025-07-10',
 			},
 		];
+
 		const component = renderComponent(mockupPosts);
 
-		for (let i = 0; i < component.postsElements.length; i++) {
-			const postDate = mockupPosts[i].date;
-
-			if (postDate) {
-				expect(component.postsElements[i].date).toHaveTextContent(postDate);
-			} else {
-				expect(component.postsElements[i].date).not.toBeInTheDocument();
-			}
-		}
+		checkHTMLElementsForComponentOptionalFeature(
+			component.postsElements,
+			'date',
+			mockupPosts
+		);
 	});
 
 	it('should display a subtitle if specified for a post', () => {
@@ -127,16 +141,12 @@ describe('PostsList', () => {
 			},
 		];
 
-		let component = renderComponent(mockupPosts);
+		const component = renderComponent(mockupPosts);
 
-		expect(component.postsElements).toHaveLength(mockupPosts.length);
-		for (let i = 0; i < component.postsElements.length; i++) {
-			const subtitleElement = component.postsElements[i].subtitle;
-			const postSubtitle = mockupPosts[i].subtitle;
-
-			postSubtitle
-				? expect(subtitleElement).toHaveTextContent(postSubtitle)
-				: expect(subtitleElement).not.toBeInTheDocument();
-		}
+		checkHTMLElementsForComponentOptionalFeature(
+			component.postsElements,
+			'subtitle',
+			mockupPosts
+		);
 	});
 });
