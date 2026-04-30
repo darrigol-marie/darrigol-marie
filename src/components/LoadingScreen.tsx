@@ -1,17 +1,14 @@
-import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
-
-interface Props {
-	query: UseQueryOptions; // TODO: see if we really need to pass the entire query to the component or if it can be created internally
+export interface LoadingScreenProps {
+	isLoading: boolean;
+	isError: boolean;
 }
 
-function LoadingScreen({ query }: Props) {
-	const { isLoading, isError } = useQuery(query);
-
+function LoadingScreen({ isLoading, isError }: LoadingScreenProps) {
 	if (isError) {
 		return <p>Une erreur est survenue.</p>;
 	}
 
-	return isLoading ? <p>Chargement...</p> : <></>;
+	return isLoading ? <p>Chargement...</p> : <></>; // TODO: see how to display view (or child component, don't remember the name)
 }
 
 export default LoadingScreen;
