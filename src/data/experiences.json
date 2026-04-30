@@ -7,19 +7,19 @@
 }, {
 	"id": "2016-2017_stagiaire-dev-app_hn",
 	"date": "2016 - 2017",
-	"position": "Stagiaire en développement d'application",
+	"position": "Développeuse d'application (stagiaire)",
 	"company": "HAPPYneuron",
 	"description": "Développement d’une application médicale centralisant plusieurs activités de remédiation cognitives en plusieurs langages (HTML, Flash). Gestion de la compatibilité sur différentes plateformes (navigateur web, console embarquée) et différents systèmes d’exploitation (Windows, Mac). Gestion du mode hors ligne. Création d’outils d’extraction de clés texte pour un stockage en base de données."
 }, {
 	"id": "2015_stagiaire-dev-web_bull",
 	"date": "2015",
-	"position": "Stagiaire en développement web",
+	"position": "Développeuse web (stagiaire)",
 	"company": "Bull",
 	"description": "Prototypage sur tablette d’une application de gestion de machines physiques partitionnées en machines virtuelles (mise en place du design, adaptation des éléments existants). Gestion du projet en autonomie complète avec le soutien d’un maître de stage. Participation aux réunions quotidiennes et hebdomadaires des autres équipes. Présentation en anglais aux équipes américaines."
 }, {
 	"id": "2013_stagiaire-dev-web_glowbl",
 	"date": "2013",
-	"position": "Stagiaire en développement web",
+	"position": "Développeuse web (stagiaire)",
 	"company": "Glowbl",
 	"description": "Développement sur le portail statique de l’application. Harmonisation graphique. Correction de bugs graphiques pour les mises en production."
 }]
