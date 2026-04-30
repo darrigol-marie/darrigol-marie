@@ -41,12 +41,16 @@
   overflow-y: hidden;
 }
 
-@media (max-height: variables.$small-device-height) {
+@media (max-width: variables.$mobile-device-max-width) {
   #title {
     flex: none;
   }
 
   #content {
     max-width: 100%;
+
+    main {
+      padding: 14px;
+    }
   }
 }

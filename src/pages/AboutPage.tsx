@@ -1,6 +1,8 @@
+import './AboutPage.scss';
+
 function AboutPage() {
 	return (
-		<>
+		<section id="about-page">
 			<p>Bienvenue à vous !</p>
 			<p>
 				Je m’appelle Marie, je suis développeuse web et écrivaine. J’ai plus de cinq
@@ -16,7 +18,7 @@ function AboutPage() {
 				espace d’expérimentation.
 			</p>
 			<p>Merci de m’avoir lue et bonne visite !</p>
-		</>
+		</section>
 	);
 }
 
