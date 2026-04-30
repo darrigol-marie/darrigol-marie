@@ -1,5 +1,12 @@
 [{
     "id": "2025_personal-website",
+    "date": "2025",
     "name": "Site personnel",
     "description": "Une description qui décrit l'origine du projet, ses buts etc."
+},
+{
+    "id": "2024_evolution-narration-lou",
+    "date": "2024",
+    "name": "Évolution des procédés narratifs dans la série Lou!",
+    "description": "Description du contenu de l'article et de son contexte de création."
 }]
