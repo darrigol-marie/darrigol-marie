@@ -22,12 +22,15 @@ describe('Navigation', () => {
 	});
 
 	it('should render a link for each given route and display their name', () => {
-		const routes: AppRoute[] = [{ name: 'Test', path: 'test' }];
+		const routes: AppRoute[] = [{ name: 'Test', path: '/test' }];
 		renderComponent(routes);
 
 		const links = screen.getAllByRole('link');
 
 		expect(links).toHaveLength(routes.length);
-		expect(links[0]).toHaveTextContent(routes[0].name);
+		for (let i = 0; i < links.length; i++) {
+			expect(links[i]).toHaveTextContent(routes[i].name);
+			expect(links[i]).toHaveAttribute('href', routes[i].path);
+		}
 	});
 });
