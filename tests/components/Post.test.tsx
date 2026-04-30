@@ -5,7 +5,6 @@ import Post from '../../src/components/Post';
 /**
  * Les tests à écrire :
  *
- * - il faut afficher un sous-titre si on en a un
  * - il faut afficher le contenu [comment découper ça ?]
  * - il faut afficher un lien si on en a un
  */
@@ -38,5 +37,11 @@ describe('Post', () => {
 
 		expect(subtitleElement).toBeInTheDocument();
 		expect(subtitleElement).toHaveTextContent(postSubtitle);
+	});
+
+	it('should not display a subtitle if not provided', () => {
+		render(<Post title={'Title'} date={'XXX'} />);
+
+		expect(screen.queryByRole('doc-subtitle')).not.toBeInTheDocument();
 	});
 });
