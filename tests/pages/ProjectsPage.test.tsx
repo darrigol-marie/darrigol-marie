@@ -2,10 +2,7 @@ import { screen, waitFor } from '@testing-library/react';
 
 import ProjectsPage, { type Project } from '../../src/pages/ProjectsPage';
 import { renderWithRouter } from '../utils/router.helper';
-
-interface Props {
-	projectsList: HTMLElement[];
-}
+import { expectPropToBeRenderedForEachComponent } from '../utils/expect.helper';
 
 describe('ProjectsPage', () => {
 	const mockupProjects: Project[] = [
@@ -16,43 +13,21 @@ describe('ProjectsPage', () => {
 		},
 	];
 
-	async function renderComponent(projects: Project[] = []): Promise<Props> {
-		renderWithRouter(<ProjectsPage />, projects);
+	async function renderComponent(): Promise<void> {
+		renderWithRouter(<ProjectsPage />, mockupProjects);
 
-		await waitFor(() => screen.getByRole('paragraph'));
-
-		return {
-			projectsList: screen.queryAllByRole('article'),
-		};
+		await waitFor(() => screen.getByRole('article'));
 	}
 
-	it('should render a list of the given projects', async () => {
-		const component = await renderComponent(mockupProjects);
-
-		expect(component.projectsList).toHaveLength(mockupProjects.length);
-	});
-
 	it('should render the name of each project as heading', async () => {
-		await renderComponent(mockupProjects);
+		await renderComponent();
 
-		const projectHeadings = screen.getAllByRole('heading');
-
-		expect(projectHeadings).toHaveLength(mockupProjects.length);
-		for (let i = 0; i < projectHeadings.length; i++) {
-			expect(projectHeadings[i]).toHaveTextContent(mockupProjects[0].name);
-		}
+		expectPropToBeRenderedForEachComponent('name', mockupProjects);
 	});
 
 	it('should render a description for each project', async () => {
-		await renderComponent(mockupProjects);
+		await renderComponent();
 
-		const projectDescriptions = screen.getAllByRole('paragraph');
-
-		expect(projectDescriptions).toHaveLength(mockupProjects.length);
-		for (let i = 0; i < projectDescriptions.length; i++) {
-			expect(projectDescriptions[i]).toHaveTextContent(
-				mockupProjects[0].description
-			);
-		}
+		expectPropToBeRenderedForEachComponent('description', mockupProjects);
 	});
 });

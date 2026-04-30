@@ -3,6 +3,7 @@ import { screen, waitFor } from '@testing-library/react';
 import ExperiencePage, {
 	type Experience,
 } from '../../src/pages/ExperiencePage';
+import { expectPropToBeRenderedForEachComponent } from '../utils/expect.helper';
 import { renderWithRouter } from '../utils/router.helper';
 
 describe('ExperiencePage', () => {
@@ -16,12 +17,6 @@ describe('ExperiencePage', () => {
 		},
 	];
 
-	function expectPropToBeRenderedForEachElement(prop: keyof Experience) {
-		for (let i = 0; i < mockupExperiences.length; i++) {
-			expect(screen.getByText(mockupExperiences[i][prop])).toBeInTheDocument();
-		}
-	}
-
 	async function renderComponent(): Promise<void> {
 		renderWithRouter(<ExperiencePage />, mockupExperiences);
 
@@ -31,24 +26,24 @@ describe('ExperiencePage', () => {
 	it('should display the date for each experience', async () => {
 		await renderComponent();
 
-		expectPropToBeRenderedForEachElement('date');
+		expectPropToBeRenderedForEachComponent('date', mockupExperiences);
 	});
 
 	it('should display the job position for each experience', async () => {
 		await renderComponent();
 
-		expectPropToBeRenderedForEachElement('position');
+		expectPropToBeRenderedForEachComponent('position', mockupExperiences);
 	});
 
 	it('should display the company name for each experience', async () => {
 		await renderComponent();
 
-		expectPropToBeRenderedForEachElement('company');
+		expectPropToBeRenderedForEachComponent('company', mockupExperiences);
 	});
 
 	it('should display the description of each experience', async () => {
 		await renderComponent();
 
-		expectPropToBeRenderedForEachElement('description');
+		expectPropToBeRenderedForEachComponent('description', mockupExperiences);
 	});
 });
