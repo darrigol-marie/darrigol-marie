@@ -13,7 +13,7 @@ function ProjectsPage() {
 			{projects.length == 0 && <p>Aucun projet à afficher.</p>}
 			{projects.map((project) => {
 				return (
-					<article>
+					<article key={project.name}>
 						<h2>{project.name}</h2>
 						<p>{project.description}</p>
 					</article>
