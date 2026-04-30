@@ -38,6 +38,7 @@ describe('ExperiencePage', () => {
 				path: '/',
 				element: <ExperiencePage />,
 				loader: () => experiences,
+				hydrateFallbackElement: <></>,
 			},
 		];
 		const router = createMemoryRouter(routes, {

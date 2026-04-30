@@ -15,6 +15,7 @@ describe('ProjectsPage', () => {
 					element: <ProjectsPage />,
 					path: '/',
 					loader: () => projects,
+					hydrateFallbackElement: <></>,
 				},
 			],
 			{
