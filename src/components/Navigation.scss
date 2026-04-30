@@ -1,10 +1,10 @@
-@import '../variables.scss';
+@use '../variables.scss';
 
 nav {
   position: sticky;
   top: 0;
 
-  background-color: $secondary-color;
+  background-color: variables.$secondary-color;
 
   ul {
     margin: 0;
@@ -19,10 +19,10 @@ nav {
       text-align: center;
       
       &:hover {
-        background-color: $tertiary-color;
-        
+        background-color: variables.$tertiary-color;
+
         a {
-          color: $accent-color;
+          color: variables.$accent-color;
         }
       }
       
@@ -33,11 +33,11 @@ nav {
 
         text-decoration: none;
 
-        color: $primary-color;
+        color: variables.$primary-color;
         font-weight: bold;
 
         &.active {
-          color: $accent-color;
+          color: variables.$accent-color;
         }
       }
     }
