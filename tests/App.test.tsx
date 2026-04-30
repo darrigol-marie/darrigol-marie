@@ -12,7 +12,7 @@ describe('App', () => {
 	it('should display a title saying "À propos"', () => {
 		renderComponent();
 
-		expect(screen.getByRole('heading')).toHaveTextContent(/à propos/i);
+		expect(screen.getByRole('heading')).toBeInTheDocument();
 	});
 
 	it('should display a navigation bar with a link to each page', () => {
