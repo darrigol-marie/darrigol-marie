@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 
 import App from '../src/App';
-import { sitePages, type Page } from '../src/types/page.type';
+import { sitePages } from '../src/types/page.type';
 
 describe('App', () => {
-	function renderComponent(pages: Page[] = []) {
-		render(<App pages={pages} />);
+	function renderComponent() {
+		render(<App pages={sitePages} />);
 	}
 
 	it('should display the page', () => {
@@ -21,7 +21,7 @@ describe('App', () => {
 	});
 
 	it('should display a navigation bar with a link to each page', () => {
-		renderComponent(sitePages);
+		renderComponent();
 
 		const navigationBar = screen.getByRole('navigation');
 
