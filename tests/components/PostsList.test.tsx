@@ -49,13 +49,6 @@ describe('PostsList', () => {
 		};
 	}
 
-	it('should display a message if there is no element to display', () => {
-		const component = renderComponent([]);
-
-		expect(component.noPostMessage).toBeInTheDocument();
-		expect(component.postsElements).toHaveLength(0);
-	});
-
 	it('should display a list of posts', () => {
 		const component = renderComponent();
 

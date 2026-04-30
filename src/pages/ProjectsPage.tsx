@@ -24,7 +24,12 @@ function ProjectsPage() {
 	});
 
 	return (
-		<LoadingScreen isLoading={isLoading} isError={isError}>
+		<LoadingScreen
+			isLoading={isLoading}
+			isError={isError}
+			isEmpty={!isLoading && data.length === 0}
+			emptyMessage="Aucun projet trouvé."
+		>
 			<PostsList posts={data} />
 		</LoadingScreen>
 	);

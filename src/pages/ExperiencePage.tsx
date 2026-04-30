@@ -15,7 +15,12 @@ function ExperiencePage() {
 	});
 
 	return (
-		<LoadingScreen isLoading={isLoading} isError={isError}>
+		<LoadingScreen
+			isLoading={isLoading}
+			isError={isError}
+			isEmpty={!isLoading && data.length === 0}
+			emptyMessage="Aucune expérience trouvée."
+		>
 			<PostsList posts={data} />
 		</LoadingScreen>
 	);

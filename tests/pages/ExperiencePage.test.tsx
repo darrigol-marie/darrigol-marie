@@ -31,21 +31,6 @@ describe('ExperiencePage', () => {
 		await waitForElementToBeRemoved(() => screen.getByTitle(/animation/i));
 	}
 
-	// TODO: to remove? (already tested in LoadingScreen tests)
-	it('should display a loading text while loading data', () => {
-		renderComponent();
-
-		expect(screen.getByTitle(/animation/i)).toBeInTheDocument();
-		expect(screen.queryByText(/aucun/i)).not.toBeInTheDocument();
-	});
-
-	// TODO: to remove? (already tested in LoadingScreen tests)
-	it('should remove the loading text when data are loaded', async () => {
-		await waitFor(completeComponentRendering);
-
-		expect(screen.queryByTitle(/animation/i)).not.toBeInTheDocument();
-	});
-
 	it('should display a message when no experience were found', async () => {
 		server.use(
 			http.get('/experiences.json', () => {
@@ -55,7 +40,7 @@ describe('ExperiencePage', () => {
 
 		await waitFor(completeComponentRendering);
 
-		expect(screen.getByText(/aucun/i)).toBeInTheDocument();
+		expect(screen.getByText(/aucune expérience/i)).toBeInTheDocument();
 	});
 
 	it('should display the date for each experience', async () => {
