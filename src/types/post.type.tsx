@@ -25,4 +25,8 @@ export class PostItem {
 
 		this.title = title;
 	}
+
+	setLink(link: PostLink) {
+		this.link = link;
+	}
 }
