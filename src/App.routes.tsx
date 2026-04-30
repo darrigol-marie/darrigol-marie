@@ -28,18 +28,10 @@ export const appRoutes: AppRoute[] = [
 	},
 	{
 		path: '/projects',
-		element: (
-			<ProjectsPage
-				// TODO: to extract in a data folder
-				projects={[
-					{
-						name: 'Mon site personnel',
-						description: 'Le site que vous visitez actuellement',
-					},
-				]}
-			/>
-		),
+		element: <ProjectsPage />,
 		name: 'Projets',
+		loader: async () =>
+			fetch('src/data/projects.json').then((response) => response.json()),
 	},
 	{
 		path: '/contact',

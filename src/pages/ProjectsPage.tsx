@@ -1,13 +1,13 @@
+import { useLoaderData } from 'react-router-dom';
+
 export interface Project {
 	name: string;
 	description: string;
 }
 
-interface Props {
-	projects: Project[];
-}
+function ProjectsPage() {
+	const projects: Project[] = useLoaderData();
 
-function ProjectsPage({ projects }: Props) {
 	return (
 		<>
 			{projects.length == 0 && <p>Aucun projet à afficher.</p>}
