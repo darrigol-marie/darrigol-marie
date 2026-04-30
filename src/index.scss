@@ -3,7 +3,10 @@
 body {
   margin: 0;
 
-  background: linear-gradient(to right, variables.$background-color 10%, variables.$white-color 10% 90%, variables.$background-color 90%);
+  background:
+    linear-gradient(45deg, transparent 48%, variables.$background-color 48% 52%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, variables.$background-color 48% 52%, transparent 52%);
+  background-size: 1em 1em;
 
   color: variables.$black-color;
   font-family: "Open Sans", sans-serif;
