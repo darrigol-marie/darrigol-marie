@@ -7,7 +7,7 @@ export const mockupExperiences: Experience[] = [
         date: '2017 - 2022',
         position: 'Développeuse front-end',
         company: 'Digital Shape Technologies',
-        description: 'Description pour ce poste',
+        description: ['Description pour ce poste'],
     },
 ];
 
@@ -16,6 +16,6 @@ export const mockupProjects: Project[] = [
 			id: 'project-test',
 			date: '202X',
 			name: 'Project Name',
-			description: 'Project description',
+			description: ['Project description'],
 		},
 	];

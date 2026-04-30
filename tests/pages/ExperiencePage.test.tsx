@@ -31,6 +31,7 @@ describe('ExperiencePage', () => {
 		await waitForElementToBeRemoved(() => screen.getByTitle(/animation/i));
 	}
 
+	// TODO: to remove? (already tested in LoadingScreen tests)
 	it('should display a loading text while loading data', () => {
 		renderComponent();
 
@@ -38,6 +39,7 @@ describe('ExperiencePage', () => {
 		expect(screen.queryByText(/aucun/i)).not.toBeInTheDocument();
 	});
 
+	// TODO: to remove? (already tested in LoadingScreen tests)
 	it('should remove the loading text when data are loaded', async () => {
 		await waitFor(completeComponentRendering);
 

@@ -8,7 +8,7 @@ export interface Project {
 	id: string;
 	date: string;
 	name: string;
-	description: string;
+	description: string[];
 }
 
 function ProjectsPage() {
@@ -29,7 +29,7 @@ function ProjectsPage() {
 						id: project.id,
 						date: project.date,
 						title: project.name,
-						text: project.description,
+						paragraphs: project.description,
 					};
 				})}
 			/>

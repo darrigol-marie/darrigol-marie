@@ -9,7 +9,7 @@ export interface Experience {
 	date: string;
 	position: string;
 	company: string;
-	description: string;
+	description: string[];
 }
 
 function ExperiencePage() {
@@ -32,7 +32,7 @@ function ExperiencePage() {
 						title: experience.position,
 						subtitle: experience.company,
 						date: experience.date,
-						text: experience.description,
+						paragraphs: experience.description,
 					};
 				})}
 			/>

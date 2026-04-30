@@ -37,4 +37,6 @@ describe('ProjectsPage', () => {
 
 		expectPropToBeRenderedForEachComponent('description', mockupProjects);
 	});
+
+	// TODO: add test for projects date
 });
