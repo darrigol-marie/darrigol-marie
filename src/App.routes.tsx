@@ -17,7 +17,8 @@ export const appRoutes: AppRoute[] = [
 	},
 	{
 		path: '/experience',
-		element: <ExperiencePage />,
+		// TODO: extract experiences in data folder
+		element: <ExperiencePage experiences={[]} />,
 		name: 'Expérience',
 	},
 	{
